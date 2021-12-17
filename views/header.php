@@ -12,4 +12,10 @@
 </head>
 
 <body>
-    <h1>myList</h1>
+    <header>
+        <h1>myList</h1>
+        <div class="nav-buttons">
+            <button class="signup"><a href="signup.php">Sign Up</a></button>
+            <button class="login"><a href="login.php">login</a></button>
+        </div>
+    </header>
