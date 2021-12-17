@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-$database = new PDO('sqlite:database.db');
+require __DIR__ . '/../autoload.php';
 
 if (isset($_POST['name'], $_POST['email'], $_POST['password'])) {
     $name = trim($_POST['name']);

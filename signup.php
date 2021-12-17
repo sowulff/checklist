@@ -3,7 +3,7 @@
 
 <h1>Sign up</h1>
 
-<form action="register.php" method="post" enctype="multipart/form-data">
+<form action="app/users/register.php" method="post" enctype="multipart/form-data">
 
     <div>
         <label for="name">Name</label>
