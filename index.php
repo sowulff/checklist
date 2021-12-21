@@ -9,6 +9,7 @@ require __DIR__ . '/views/header.php';
     <p>Welcome, <?= $_SESSION['user']['name']; ?>!</p>
     <a href="profile.php">edit your profile</a>
 
+
 <?php endif; ?>
 
 
