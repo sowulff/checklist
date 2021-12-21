@@ -21,11 +21,11 @@
         <input type="password" name="password" id="password" required>
 
     </div>
-
     <div>
-        <label for="avatar">Upload profile picture</label>
-        <input type="file" name="avatar" id="avatar" accept=".jpg, .png" required>
+        <label for="password-confirm">Confirm password</label>
+        <input type="password" name="password-confirm" id="password-confirm" required>
     </div>
+
 
 
     <button type="submit">Sign up</button>
