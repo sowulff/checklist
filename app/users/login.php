@@ -19,15 +19,21 @@ if (isset($_POST['email'], $_POST['password'])) {
     // Fetch the user as an associative array.
     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
+
+
+
     // If we couldn't find the user in the database, redirect back to the login
     // page with our custom redirect function.
+
     if (!$user) {
+        redirect('/login.php');
     }
 
 
     if (password_verify($_POST['password'], $user['password'])) {
 
         unset($user['password']);
+
         $_SESSION['user'] = $user;
     }
 }

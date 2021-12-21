@@ -15,7 +15,7 @@
     <header>
         <h1><a href="/">myList</a></h1>
         <div class="nav-buttons">
-            <button class="signup"><a href="signup.php">Sign Up</a></button>
-            <button class="login"><a href="login.php">login</a></button>
+            <a href="signup.php">Sign Up</a>
+            <a href="login.php">login</a>
         </div>
     </header>
