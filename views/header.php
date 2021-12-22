@@ -16,7 +16,7 @@
     <header>
 
         <?php if (isset($_SESSION['user'])) { ?>
-            <h1><a href="/">myList</a></h1>
+            <div class="logo"><a href="/">myList.</a></div>
             <div class="nav-buttons">
 
                 <a href="/app/users/logout.php">log out</a>
@@ -24,10 +24,10 @@
 
         <?php } else { ?>
 
-            <h1><a href="/">myList</a></h1>
+            <div class="logo"><a href="/">myList.</a></div>
             <div class="nav-buttons">
-                <a href="signup.php">Sign Up</a>
-                <a href="login.php">login</a>
+                <a href="signup.php">About us</a>
+                <a href="login.php">Demo</a>
             </div>
         <?php } ?>
     </header>

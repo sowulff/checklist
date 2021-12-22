@@ -4,4 +4,23 @@ header {
   align-items: center;
   padding-right: 1rem;
   padding-left: 1rem;
+  background-color: rgb(25, 125, 146);
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+  padding: 1rem;
+}
+.logo {
+  font-size: 32px;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: rgb(255, 253, 253);
+}
+.logo a {
+  text-decoration: none;
+  color: rgb(25, 125, 146);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(255, 253, 253);
+  font-weight: bold;
+}
+header a {
+  text-decoration: none;
+  color: white;
 }
