@@ -10,14 +10,12 @@ header {
 }
 .logo {
   font-size: 32px;
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: rgb(255, 253, 253);
 }
 .logo a {
   text-decoration: none;
   color: rgb(25, 125, 146);
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: rgb(255, 253, 253);
+  -webkit-text-stroke-color: rgb(230, 158, 100);
   font-weight: bold;
 }
 header a {

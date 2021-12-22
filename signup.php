@@ -18,12 +18,15 @@
              <h2>Log in</h2>
              <span>Don't have an account? <a href="#">Create Your Account</a> it takes less than a minute</span>
 
-             <form action="app/users/login.php" method="post">
+             <form action="app/users/login.php" method="post" class="login-form">
                  <label for="email">email address:</label>
                  <input type="email" name="email" id="email">
                  <label for="password">password:</label>
                  <input type="password" name="password" id="password">
-                 <button type="submit">Login</button>
+                 <div class="login-forgot">
+                     <button type="submit" class="btn">Login</button>
+                     <a class="forgot" href="#">Forgot Password?</a>
+                 </div>
              </form>
          </div>
          <div class="sign-up-container">
