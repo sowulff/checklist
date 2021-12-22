@@ -12,7 +12,7 @@
 }
 
 .hero {
-  background-color: rgb(25, 125, 146);
+  background-color: rgb(85, 72, 205);
   color: white;
   height: 100%;
   display: flex;
@@ -27,8 +27,8 @@
   font-weight: bold;
   text-align: left;
   -webkit-text-stroke-width: 1.3px;
-  -webkit-text-stroke-color: rgb(230, 158, 100);
-  color: rgb(25, 125, 146);
+  -webkit-text-stroke-color: rgb(255, 184, 251);
+  color: rgb(85, 72, 205);
 }
 .big-welcome {
   font-size: 58px;
