@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="assets/styles/header.css">
     <link rel="stylesheet" href="assets/styles/footer.css">
     <link rel="stylesheet" href="assets/styles/signup.css">
+    <link rel="stylesheet" href="assets/styles/profile.css">
     <title>Checklist</title>
 </head>
 
@@ -18,7 +19,6 @@
         <?php if (isset($_SESSION['user'])) { ?>
             <div class="logo"><a href="/">myList.</a></div>
             <div class="nav-buttons">
-
                 <a href="/app/users/logout.php">log out</a>
             </div>
 
@@ -26,8 +26,9 @@
 
             <div class="logo"><a href="/">myList.</a></div>
             <div class="nav-buttons">
-                <a href="signup.php">About us</a>
-                <a href="login.php">Demo</a>
+                <a href="about.php">About us</a>
+                <a href="demo
+                .php">Demo</a>
             </div>
         <?php } ?>
     </header>
