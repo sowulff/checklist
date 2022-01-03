@@ -7,6 +7,7 @@
          <h1>
              <div class="big-welcome">Welcome</div>
              <span class="small-to">to</span> myList.
+
          </h1>
          <p>
              Welocome to myList, ipsum dolor sit amet, consectetur adipiscing
@@ -29,6 +30,9 @@
                  </div>
              </form>
          </div>
+     </div>
+     <div class="clip">
+         my clip path
      </div>
  </article>
 

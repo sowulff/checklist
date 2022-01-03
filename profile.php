@@ -1,5 +1,7 @@
 <?php require __DIR__ . '/views/header.php'; ?>
 <?php require __DIR__ . '/app/autoload.php'; ?>
+
+
 <?php if (isset($_SESSION['user']['img_url'])) :
 ?>
     <div class="curved-container">
@@ -20,7 +22,14 @@
     <button type="submit">Upload</button>
 </form>
 
+<form action="/app/users/change_email.php" method="post">
+    <label for="email">new email address:</label>
+    <input type="email" name="email" id="email">
+    <button type="submit">Change email address</button>
+</form>
 
-
+<div class="delete-profile">
+    <p>Delete your profile and all the userinformation permanent.</p>
+</div>
 
 <?php require __DIR__ . '/views/footer.php';

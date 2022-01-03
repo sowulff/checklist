@@ -20,6 +20,7 @@
             <div class="logo"><a href="/">myList.</a></div>
             <div class="nav-buttons">
                 <a href="/app/users/logout.php">log out</a>
+                <a href="profile.php">edit your profile</a>
             </div>
 
         <?php } else { ?>
@@ -27,8 +28,8 @@
             <div class="logo"><a href="/">myList.</a></div>
             <div class="nav-buttons">
                 <a href="about.php">About us</a>
-                <a href="demo
-                .php">Demo</a>
+                <a href="demo.php">Demo</a>
+
             </div>
         <?php } ?>
     </header>
