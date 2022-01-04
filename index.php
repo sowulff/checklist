@@ -22,6 +22,7 @@ require __DIR__ . '/views/header.php';
     <div class="form-container">
         <div class="log-in-container">
             <h2>LOGIN</h2>
+            <div class="error-login">Incorrect something.</div>
             <form action="app/users/login.php" method="post" class="login-form">
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email">
@@ -36,7 +37,7 @@ require __DIR__ . '/views/header.php';
 
         <div class="sign-up-container">
             <h2>CREATE ACCOUNT</h2>
-
+            <div class="error-login">Incorrect something.</div>
             <form action="app/users/register.php" method="post" enctype="multipart/form-data">
 
                 <div>
@@ -62,7 +63,7 @@ require __DIR__ . '/views/header.php';
 
 
 
-                <button type="submit">Create</button>
+                <button type="submit" class="btn">Create</button>
             </form>
         </div>
     </div>
