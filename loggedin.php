@@ -22,6 +22,7 @@ endif; ?>
     foreach ($lists as $list) : ?>
         <li>
             <?= $list['title'] ?><br>
+            <!-- foreach tasks as task list under each list  -->
         </li>
     <?php endforeach ?>
 </ul>

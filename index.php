@@ -21,28 +21,52 @@ require __DIR__ . '/views/header.php';
     </div>
     <div class="form-container">
         <div class="log-in-container">
-            <h2>Log in</h2>
-            <span>Don't have an account? <a href="signup.php">Create Your Account</a> it takes less than a minute</span>
-
+            <h2>LOGIN</h2>
             <form action="app/users/login.php" method="post" class="login-form">
-                <label for="email">email address:</label>
+                <label for="email">Email</label>
                 <input type="email" name="email" id="email">
-                <label for="password">password:</label>
+                <label for="password">Password</label>
                 <input type="password" name="password" id="password">
-                <div class="login-forgot">
-                    <button type="submit" class="btn">Login</button>
-                    <a class="forgot" href="#">Forgot Password?</a>
+
+                <a class="forgot" href="#">Forgot Password?</a>
+                <button type="submit" class="btn">Login</button>
+
+            </form>
+        </div>
+
+        <div class="sign-up-container">
+            <h2>CREATE ACCOUNT</h2>
+
+            <form action="app/users/register.php" method="post" enctype="multipart/form-data">
+
+                <div>
+                    <label for="name">Name</label>
+                    <input type="name" name="name" id="name" required>
+
                 </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" required>
+
+                </div>
+
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" required>
+
+                </div>
+                <div>
+                    <label for="password-confirm">Confirm password</label>
+                    <input type="password" name="password-confirm" id="password-confirm" required>
+                </div>
+
+
+
+                <button type="submit">Create</button>
             </form>
         </div>
     </div>
-    <div class="clip">
-        my clip path
-    </div>
 </article>
-
-<?php require __DIR__ . '/views/footer.php'; ?>
-
 
 
 <?php require __DIR__ . '/views/footer.php'; ?>

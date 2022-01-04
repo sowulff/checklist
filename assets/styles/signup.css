@@ -1,0 +1,39 @@
+.form-container {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+}
+.log-in-container {
+  background-color: white;
+  width: 100%;
+}
+.sign-up-container {
+  background-color: white;
+  width: 100%;
+}
+h2 {
+  text-align: center;
+  font-family: sans-serif;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-family: sans-serif;
+  font-weight: 300;
+  line-height: 1.5;
+  font-size: smaller;
+}
+input {
+  width: 100%;
+  border: 1px solid #e8e9eb;
+  background-color: #fff;
+  color: #1e1e1e;
+
+  padding: 10px 20px;
+  margin-bottom: 16px;
+  display: block;
+}
