@@ -15,7 +15,7 @@ body {
 .curved-container::before {
   content: '';
   display: block;
-  background: rgb(85, 72, 205);
+  background: rgb(228, 228, 228);
   position: absolute;
   left: 50%;
   bottom: 0;
