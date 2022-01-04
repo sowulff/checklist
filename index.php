@@ -9,15 +9,17 @@ require __DIR__ . '/views/header.php';
 
 <article class="welocome-signup">
     <div class="hero">
-        <h1>
-            <div class="big-welcome">Welcome</div>
-            <span class="small-to">to</span> myList.
-
-        </h1>
-        <p>
-            Welocome to myList, ipsum dolor sit amet, consectetur adipiscing
-            elit. Curabitur et est sed felis aliquet sollicitudin.
-        </p>
+        <img src="berg.jpg" width="100%">
+        <div class="text-on-image">
+            <h1>
+                <div class="big-welcome">Get shit done</div>
+                <span class="small-to">with</span> <span class="color-logo">myList.</span>
+            </h1>
+            <p>
+                Welocome to myList, ipsum dolor sit amet, consectetur adipiscing
+                elit. Curabitur et est sed felis aliquet sollicitudin.
+            </p>
+        </div>
     </div>
     <div class="form-container">
         <div class="log-in-container">

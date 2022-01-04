@@ -2,8 +2,26 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+}
+.hero {
+  font-family: sans-serif;
+}
+.color-logo {
+  color: lightcoral;
+}
+.small-to {
+  font-size: smaller;
+}
+.text-on-image {
+  position: absolute;
+  top: 0px;
+  padding: 39px;
 }
 
+.hero p {
+  font-size: smaller;
+}
 .form-container {
   background-color: white;
   width: 100%;
@@ -11,6 +29,7 @@
   flex-direction: column;
   align-items: center;
   padding: 40px;
+  padding-top: 20px;
   gap: 40px;
   max-width: 400px;
 }
@@ -69,4 +88,11 @@ button:focus {
   text-transform: none;
   font-weight: bold;
   font-size: 16px;
+  margin-top: 1rem;
+}
+.forgot {
+  text-decoration: none;
+  font-family: sans-serif;
+  color: inherit;
+  text-align: center;
 }
