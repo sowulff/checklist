@@ -14,8 +14,7 @@ require __DIR__ . '/views/header.php';
 
 endif; ?>
 
-<h2>Your Lists</h2>
-
+<h2 class="list-title">My Lists</h2>
 <ul>
     <?php
     $lists = get_lists($database);
@@ -26,10 +25,59 @@ endif; ?>
         </li>
     <?php endforeach ?>
 </ul>
-
-<h3>Create New List</h3>
 <form action="/app/lists/create.php" method="post">
-    <label for="title">Name your list:</label>
-    <input name="title" id="title" type="text">
-    <button type="submit">Create List</button>
+    <input id="title" name="title" type="text" class="new-list" placeholder="new list name" aria-label="new list name" />
+    <button class="create" aria-label="create new list">+</button>
 </form>
+
+
+
+<div class="todo-list">
+    <div class="todo-header">
+        <h2 class="list-title">LIST TITLE</h2>
+        <p class="task-count">X tasks remaining</p>
+    </div>
+
+    <div class="todo-body">
+        <div class="tasks">
+            <div class="task">
+                <input type="checkbox" id="PLOCKA FRÅN DATABAS KANSKE" />
+                <label for="task-1">
+                    <span class="checkbox"></span>
+                    record todo list video
+                </label>
+            </div>
+            <!-- /task-1 -->
+
+            <div class="task">
+                <input type="checkbox" id="VET INTE" />
+                <label for="task-2">
+                    <span class="checkbox"></span>
+                    another task
+                </label>
+            </div>
+            <!-- /task-2 -->
+
+            <div class="task">
+                <input type="checkbox" id="task-3" />
+                <label for="task-3">
+                    <span class="checkbox"></span>
+                    a third task
+                </label>
+            </div>
+            <!-- /task-3 -->
+        </div>
+
+        <div class="new-task-creator">
+            <form action="">
+                <input type="text" class="new task" placeholder="new task name" />
+                <button class="create" aria-label="create new task">+</button>
+            </form>
+        </div>
+
+        <div class="delete-stuff">
+            <button class="delete MARKED">Clear completed tasks</button>
+            <button class="delete HELA SKITEN">Delete list</button>
+        </div>
+    </div>
+</div>
