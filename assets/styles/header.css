@@ -4,24 +4,4 @@ header {
   align-items: center;
   padding-right: 1rem;
   padding-left: 1rem;
-  background-color: rgb(85, 72, 205);
-  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
-  padding: 1rem;
-}
-.logo {
-  font-size: 32px;
-}
-.logo a {
-  text-decoration: none;
-  color: rgb(85, 72, 205);
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: rgb(255, 255, 255);
-  font-weight: bold;
-}
-header a {
-  text-decoration: none;
-  color: white;
-}
-a:hover {
-  color: #5a5959;
 }
