@@ -1,1 +1,64 @@
+.user-info {
+  width: 100%;
+  list-style: none;
+  padding: 20px;
+}
+li {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+}
+.update-profile {
+  color: black;
+  width: 20%;
+  min-width: inherit;
+  border: 1px solid black;
+  background: none;
+  text-transform: none;
+  font: inherit;
+}
+.update-profile-container {
+  padding: 40px;
+  padding-top: 0;
+}
+.update-profile-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-family: sans-serif;
+  font-weight: 300;
+  line-height: 1.5;
+  font-size: smaller;
+}
+.update-profile-container input {
+  width: 100%;
+  border: 1px solid #e8e9eb;
+  background-color: #fff;
+  color: #1e1e1e;
+  padding: 10px 20px;
+  margin-bottom: 16px;
+  display: block;
+}
+.btn {
+  background-color: black;
+  color: #fff;
+  width: 100%;
+  min-width: inherit;
+  border-radius: 2px;
+  padding: 13px;
+  text-transform: none;
+  font-weight: bold;
+}
+.button-color {
+  background-color: lightcoral;
+  border: 1px solid lightcoral;
+}
+.change-email-form {
+  display: none;
+}
+.change-password-form {
+  display: none;
+}
 
+.show {
+  display: block;
+}

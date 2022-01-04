@@ -4,12 +4,10 @@
 
 <?php if (isset($_SESSION['user']['img_url'])) :
 ?>
-    <div class="curved-container">
-        <div class="container">
-            <img src="uploads/<?php echo $_SESSION['user']['img_url'] ?>" class="image">
-        </div>
-    </div>
 
+    <div class="container">
+        <img src="uploads/<?php echo $_SESSION['user']['img_url'] ?>" class="image">
+    </div>
     <form action="/app/users/upload.php" method="post" enctype="multipart/form-data">
         <label for="avatar">Change profile picture</label>
         <input type="file" name="avatar" id="avatar" accept=".png, .jpg, .jpeg">
@@ -21,22 +19,29 @@
         <input type="file" name="avatar" id="avatar" accept=".png, .jpg, .jpeg">
         <button type="submit">Upload</button>
     <?php endif; ?>
-    <form action="/app/users/change_email.php" method="post">
-        <label for="email">new email address:</label>
-        <input type="email" name="email" id="email">
-        <button type="submit">Change email address</button>
-    </form>
-    <div>Change password</div>
-    <form action="/app/users/change_password.php" method="post">
-        <label for="password">current password:</label>
-        <input name="password" id="password" type="password">
-        <label for="new_password">select your password:</label>
-        <input name="new_password" id="new_password" type="password">
-        <button type="submit">Change password</button>
-    </form>
 
-    <div class="delete-profile">
-        <a href="#">Delete your account.</a>
+    <ul class="user-info">
+        <li>Name: <?php echo $_SESSION['user']['name'] ?> <button class="update-profile name">change</button></li>
+        <li>Email: <?php echo $_SESSION['user']['email'] ?> <button class="update-profile email">change</button></li>
+        <li>Password: ********<button class="update-profile password">change</button></li>
+    </ul>
+    <div class="update-profile-container">
+        <form class="change-email-form" action="/app/users/change_email.php" method="post">
+            <label for="email">new email address:</label>
+            <input type="email" name="email" id="email">
+            <button class="btn" type="submit">Change email address</button>
+        </form>
+
+        <form class="change-password-form" action="/app/users/change_password.php" method="post">
+            <label for="password">current password:</label>
+            <input name="password" id="password" type="password">
+            <label for="new_password">select your password:</label>
+            <input name="new_password" id="new_password" type="password">
+            <button class="btn" type="submit">Change password</button>
+        </form>
+
+        <div class="delete-profile">
+            <a href="#">Delete your account.</a>
+        </div>
     </div>
-
     <?php require __DIR__ . '/views/footer.php';
