@@ -20,14 +20,16 @@ endif; ?>
     $lists = get_lists($database);
     foreach ($lists as $list) : ?>
         <li>
-            <?= $list['title'] ?><br>
-            <!-- foreach tasks as task list under each list  -->
+            <?= $list['title'] ?> <form action="/app/lists/delete.php" method="post">
+                <button name="delete-task" type="submit" value="<?= $list['id'] ?>">Delete</button>
+            </form><br>
+
         </li>
     <?php endforeach ?>
 </ul>
 <form action="/app/lists/create.php" method="post">
     <input id="title" name="title" type="text" class="new-list" placeholder="new list name" aria-label="new list name" />
-    <button class="create" aria-label="create new list">+</button>
+    <button class="create-list">+</button>
 </form>
 
 
