@@ -8,9 +8,8 @@ require __DIR__ . '/views/header.php';
     <!-- Here is all of the lists of the user  -->
 
 
-<?php $lists = fetchAllLists($database);
+<?php
 
-    print_r($lists);
 
 endif; ?>
 
@@ -20,23 +19,30 @@ endif; ?>
     $lists = get_lists($database);
     foreach ($lists as $list) : ?>
         <li>
-            <?= $list['title'] ?> <form action="/app/lists/delete.php" method="post">
+            <form action="/app/tasks/list.php" method="post">
+                <input type="checkbox" id="list-checkbox" name="list-checkbox">
+                <label for="list-checkbox"><?= $list['title'] ?></label>
+            </form>
+
+
+            <form action="/app/lists/delete.php" method="post">
                 <button name="delete-task" type="submit" value="<?= $list['id'] ?>">Delete</button>
             </form><br>
 
         </li>
     <?php endforeach ?>
 </ul>
+<!-- CREATE NEW LIST  -->
 <form action="/app/lists/create.php" method="post">
     <input id="title" name="title" type="text" class="new-list" placeholder="new list name" aria-label="new list name" />
     <button class="create-list">+</button>
 </form>
 
 
-
+<!-- GET TITLE FROM LIST  -->
 <div class="todo-list">
     <div class="todo-header">
-        <h2 class="list-title">LIST TITLE</h2>
+        <h2 class="list-title">LIST TITLE<?= '' ?></h2>
         <p class="task-count">X tasks remaining</p>
     </div>
 
@@ -70,12 +76,7 @@ endif; ?>
             <!-- /task-3 -->
         </div>
 
-        <div class="new-task-creator">
-            <form action="">
-                <input type="text" class="new task" placeholder="new task name" />
-                <button class="create" aria-label="create new task">+</button>
-            </form>
-        </div>
+
 
         <div class="delete-stuff">
             <button class="delete MARKED">Clear completed tasks</button>
@@ -83,3 +84,25 @@ endif; ?>
         </div>
     </div>
 </div>
+<div>REAL DEAL</div>
+
+
+
+<ul>
+    <?php
+    $tasks = get_tasks($database);
+    foreach ($tasks as $task) : ?>
+        <li>
+            <form action="/app/tasks/create.php" method="post">
+                <input type="checkbox" id="list-checkbox" name="list-checkbox">
+                <label for="list-checkbox"><?= $task['title'] ?></label>
+            </form>
+        </li>
+    <?php endforeach ?>
+</ul>
+
+
+<form action="/app/tasks/create.php" method="post">
+    <input id="title" name="title" type="text" class="new-task" placeholder="new task name" />
+    <button class="create" aria-label="create new task">+</button>
+</form>

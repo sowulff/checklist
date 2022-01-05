@@ -8,15 +8,7 @@ function redirect(string $path)
     exit;
 }
 
-function fetchAllLists(PDO $database): array
-{
-    $sql = $database->prepare('SELECT * FROM lists WHERE user_id = :id');
-    $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
-    $sql->execute();
 
-    $lists = $sql->fetchAll(PDO::FETCH_ASSOC);
-    return $lists;
-}
 
 function get_user(object $database)
 {
@@ -35,6 +27,8 @@ function get_user(object $database)
     return $user_info;
 }
 
+
+
 function get_lists(object $database)
 {
     $user_id = $_SESSION['user']['id'];
@@ -46,4 +40,17 @@ function get_lists(object $database)
     $lists = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     return $lists;
+}
+
+function get_tasks(object $database)
+{
+    $user_id = $_SESSION['user']['id'];
+
+
+    $statement = $database->prepare('SELECT * FROM tasks WHERE user_id = :user_id ');
+    $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $statement->execute();
+
+    $allTasks = $statement->fetchAll(PDO::FETCH_ASSOC);
+    return $allTasks;
 }
