@@ -4,7 +4,12 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
-// insert list into database
+
+
+
+
+
+// insert tasks into database
 if (isset($_POST['title'])) {
     $listId = $_GET['id'];
     $title = trim($_POST['title']);

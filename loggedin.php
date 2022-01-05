@@ -18,20 +18,27 @@ endif; ?>
     <?php
     $lists = get_lists($database);
     foreach ($lists as $list) : ?>
+        <?php
+        $title = $list['title'];
+        $id = $list['id'];
+
+        ?>
         <li>
-            <form action="/app/tasks/list.php" method="post">
-                <input type="checkbox" id="list-checkbox" name="list-checkbox">
-                <label for="list-checkbox"><?= $list['title'] ?></label>
-            </form>
 
-
+            <a href="loggedin.php?id=<?= $id; ?>"><?php echo $title; ?></a>
             <form action="/app/lists/delete.php" method="post">
-                <button name="delete-task" type="submit" value="<?= $list['id'] ?>">Delete</button>
+                <button name="delete-task" type="submit" value="<?= $id ?>">Delete</button>
             </form><br>
 
         </li>
+
     <?php endforeach ?>
 </ul>
+
+<?php
+// $get = $_GET['id'];
+// echo $get;
+?>
 <!-- CREATE NEW LIST  -->
 <form action="/app/lists/create.php" method="post">
     <input id="title" name="title" type="text" class="new-list" placeholder="new list name" aria-label="new list name" />
@@ -49,60 +56,53 @@ endif; ?>
     <div class="todo-body">
         <div class="tasks">
             <div class="task">
-                <input type="checkbox" id="PLOCKA FRÅN DATABAS KANSKE" />
-                <label for="task-1">
-                    <span class="checkbox"></span>
-                    record todo list video
+                <input type="checkbox" id="PLOCKA FRÅN DATABAS KANSKE" name="task" />
+                <label for="task">
+                    task name
                 </label>
             </div>
-            <!-- /task-1 -->
 
-            <div class="task">
-                <input type="checkbox" id="VET INTE" />
-                <label for="task-2">
-                    <span class="checkbox"></span>
-                    another task
-                </label>
+
+
+
+
+
+            <div class="delete-stuff">
+                <button class="delete MARKED">Clear completed tasks</button>
+                <button class="delete HELA SKITEN">Delete list</button>
             </div>
-            <!-- /task-2 -->
-
-            <div class="task">
-                <input type="checkbox" id="task-3" />
-                <label for="task-3">
-                    <span class="checkbox"></span>
-                    a third task
-                </label>
-            </div>
-            <!-- /task-3 -->
-        </div>
-
-
-
-        <div class="delete-stuff">
-            <button class="delete MARKED">Clear completed tasks</button>
-            <button class="delete HELA SKITEN">Delete list</button>
         </div>
     </div>
-</div>
-<div>REAL DEAL</div>
+    <div>REAL DEAL</div>
 
 
 
-<ul>
-    <?php
-    $tasks = get_tasks($database);
-    foreach ($tasks as $task) : ?>
-        <li>
-            <form action="/app/tasks/create.php" method="post">
-                <input type="checkbox" id="list-checkbox" name="list-checkbox">
-                <label for="list-checkbox"><?= $task['title'] ?></label>
-            </form>
-        </li>
-    <?php endforeach ?>
-</ul>
+    <ul>
+        <?php
 
 
-<form action="/app/tasks/create.php" method="post">
-    <input id="title" name="title" type="text" class="new-task" placeholder="new task name" />
-    <button class="create" aria-label="create new task">+</button>
-</form>
+        $tasks = get_tasks($database);
+        foreach ($tasks as $task) : ?>
+            <li>
+                <form action="/app/tasks/create.php" method="post">
+                    <input type="checkbox" id="list-checkbox" name="list-checkbox">
+                    <label for="list-checkbox"><?= $task['title'] ?></label>
+                </form>
+            </li>
+        <?php endforeach ?>
+    </ul>
+
+
+    <form action="/app/tasks/create.php" method="post">
+        <div>
+            <input id="title" name="title" type="text" class="new-task" placeholder="new task name" />
+        </div>
+        <div>
+            <input id="title" name="title" type="text" class="new-task" placeholder="description" />
+
+        </div>
+        <div>
+            <input id="date" name="date" type="date" class="new-task" placeholder="due date" />
+            <button class="create" aria-label="create new task">+</button>
+        </div>
+    </form>
