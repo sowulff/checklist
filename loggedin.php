@@ -25,7 +25,7 @@ endif; ?>
         ?>
         <li>
 
-            <a href="loggedin.php?id=<?= $id; ?>"><?php echo $title; ?></a>
+            <a href="loggedin.php?id=<?= $id; ?>&title=<?= $title; ?>"><?php echo $title; ?></a>
             <form action="/app/lists/delete.php" method="post">
                 <button name="delete-task" type="submit" value="<?= $id ?>">Delete</button>
             </form><br>
@@ -34,11 +34,10 @@ endif; ?>
 
     <?php endforeach ?>
 </ul>
-
 <?php
-// $get = $_GET['id'];
-// echo $get;
+// echo $_GET['title'];
 ?>
+
 <!-- CREATE NEW LIST  -->
 <form action="/app/lists/create.php" method="post">
     <input id="title" name="title" type="text" class="new-list" placeholder="new list name" aria-label="new list name" />
@@ -49,7 +48,7 @@ endif; ?>
 <!-- GET TITLE FROM LIST  -->
 <div class="todo-list">
     <div class="todo-header">
-        <h2 class="list-title">LIST TITLE<?= '' ?></h2>
+        <h2 class="list-title"><?= $_GET['title']; ?></h2>
         <p class="task-count">X tasks remaining</p>
     </div>
 
@@ -80,29 +79,35 @@ endif; ?>
     <ul>
         <?php
 
-
-        $tasks = get_tasks($database);
-        foreach ($tasks as $task) : ?>
-            <li>
-                <form action="/app/tasks/create.php" method="post">
-                    <input type="checkbox" id="list-checkbox" name="list-checkbox">
-                    <label for="list-checkbox"><?= $task['title'] ?></label>
-                </form>
-            </li>
-        <?php endforeach ?>
+        if (isset($_GET['id'])) :
+            $tasks = get_tasks($database);
+            foreach ($tasks as $task) :
+                if ($task['list_id'] = $_GET['id']) :
+        ?>
+                    <li>
+                        <?php echo $task['list_id']; ?>
+                        <form action="/app/tasks/create.php" method="post">
+                            <input type="checkbox" id="list-checkbox" name="list-checkbox">
+                            <label for="list-checkbox"><?= $task['title'] ?></label>
+                        </form>
+                    </li>
+                <?php endif; ?>
+            <?php endforeach ?>
     </ul>
+<?php else :
+            echo 'please choose a list.'
+?>
+<?php endif; ?>
+<form action="/app/tasks/create.php?id=<?= $_GET['id'] ?>" method="post">
+    <div>
+        <input id="title" name="title" type="text" class="new-task" placeholder="new task name" />
+    </div>
+    <div>
+        <input id="title" name="title" type="text" class="new-task" placeholder="description" />
 
-
-    <form action="/app/tasks/create.php" method="post">
-        <div>
-            <input id="title" name="title" type="text" class="new-task" placeholder="new task name" />
-        </div>
-        <div>
-            <input id="title" name="title" type="text" class="new-task" placeholder="description" />
-
-        </div>
-        <div>
-            <input id="date" name="date" type="date" class="new-task" placeholder="due date" />
-            <button class="create" aria-label="create new task">+</button>
-        </div>
-    </form>
+    </div>
+    <div>
+        <input id="date" name="date" type="date" class="new-task" placeholder="due date" />
+        <button class="create" aria-label="create new task">+</button>
+    </div>
+</form>

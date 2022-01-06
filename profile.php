@@ -21,7 +21,7 @@
     <?php endif; ?>
 
     <ul class="user-info">
-        <li>Name: <?php echo $_SESSION['user']['name'] ?> <button class="update-profile name">change</button></li>
+        <li>Name: <?php echo $_SESSION['user']['name'] ?> </li>
         <li>Email: <?php echo $_SESSION['user']['email'] ?> <button class="update-profile email">change</button></li>
         <li>Password: ********<button class="update-profile password">change</button></li>
     </ul>
@@ -40,8 +40,9 @@
             <button class="btn" type="submit">Change password</button>
         </form>
 
-        <div class="delete-profile">
-            <a href="#">Delete your account.</a>
-        </div>
+
+
+        <div class="error-login delete-account"><a href="#">Delete your account.</a></div>
+
     </div>
     <?php require __DIR__ . '/views/footer.php';
