@@ -26,11 +26,12 @@ endif; ?>
             ?>
             <li>
                 <h4><?php echo $title ?></h4>
-                <a href="loggedin.php?id=<?= $id; ?>&title=<?= $title; ?>">view</a>
+                <a href="loggedin.php?id=<?= $id; ?>&title=<?= $title; ?>">open</a>
                 <form action="/app/lists/delete.php" method="post">
                     <button name="delete-list" type="submit" value="<?= $id ?>">X</button>
                 </form>
             </li>
+
 
         <?php endforeach ?>
     </ul>
@@ -53,30 +54,14 @@ endif; ?>
         <p class="task-count">X tasks remaining</p>
     </div>
 
-    <div class="todo-body">
-        <div class="tasks">
-            <div class="task">
-                <input type="checkbox" id="PLOCKA FRÅN DATABAS KANSKE" name="task" />
-                <label for="task">
-                    task name
-                </label>
-            </div>
-
-
-
-
-
-
-            <div class="delete-stuff">
-                <button class="delete MARKED">Clear completed tasks</button>
-                <button class="delete HELA SKITEN">Delete list</button>
-            </div>
-        </div>
+    <div class="delete-stuff">
+        <button class="delete MARKED">Clear completed tasks</button>
     </div>
-    <div>REAL DEAL</div>
+</div>
 
 
 
+<div class="task-container">
     <ul>
         <?php
 
@@ -99,6 +84,7 @@ endif; ?>
                 <?php endif; ?>
             <?php endforeach ?>
     </ul>
+</div>
 <?php else :
             echo 'please choose a list.'
 ?>

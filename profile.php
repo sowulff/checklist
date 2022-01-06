@@ -19,18 +19,7 @@
     <button type="submit">Upload</button>
 </form>
 
-<div class="links">
-    <form action="app/users/upload.php" method="POST" enctype="multipart/form-data">
-        <a href=""><label for="avatar" class="link-pfp">Change profile picture</label></a>
-        <input type="file" id="avatar" name="avatar" accept=".jpg, .jpeg, .png, .gif" style=" display: none;">
-        <input type="submit" style="display: none;">
-    </form>
-    <?php if (isset($userImage)) : ?>
-        <form action="app/users/remove-avatar.php" method="POST" enctype="multipart/form-data">
-            <input type="submit" id="remove-avatar" name="remove-avatar" class="unlink-pfp" value="Remove profile picture">
-        </form>
-    <?php endif; ?>
-</div>
+
 
 <ul class="user-info">
     <li>Name: <?php echo $_SESSION['user']['name'] ?> </li>

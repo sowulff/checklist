@@ -1,3 +1,4 @@
+/* lISTS */
 .list-container ul {
   margin: 0;
   padding: 0;
@@ -28,4 +29,10 @@
   cursor: pointer;
   font-weight: 600;
   font-size: 16px;
+}
+/* TASKS  */
+
+.task-container li {
+  display: flex;
+  gap: 20px;
 }

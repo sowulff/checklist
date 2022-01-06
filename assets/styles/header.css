@@ -16,9 +16,16 @@ header {
   justify-content: space-between;
   align-items: center;
 }
+.nav-buttons a:hover {
+  color: lightcoral;
+}
 .nav-buttons a:last-child {
   border: 1px solid lightcoral;
   padding: 5px;
+}
+.nav-buttons a:last-child:hover {
+  background-color: lightcoral;
+  color: black;
 }
 .logo {
   font-size: 24px;
