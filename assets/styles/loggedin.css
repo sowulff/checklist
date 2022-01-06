@@ -1,0 +1,31 @@
+.list-container ul {
+  margin: 0;
+  padding: 0;
+}
+.list-container li {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 24px;
+}
+.list-container h4 {
+  padding: 0;
+  margin: 0;
+  font-weight: 300;
+}
+.list-container a {
+  text-decoration: none;
+  font-size: 18px;
+
+  font-weight: 600;
+}
+
+.list-container li button {
+  background: none;
+  color: tomato;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+}

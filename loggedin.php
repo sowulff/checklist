@@ -14,26 +14,27 @@ require __DIR__ . '/views/header.php';
 endif; ?>
 
 <h2 class="list-title">My Lists</h2>
-<ul>
-    <?php
-    $lists = get_lists($database);
-    foreach ($lists as $list) : ?>
+<div class="list-container">
+    <ul>
         <?php
-        $title = $list['title'];
-        $id = $list['id'];
+        $lists = get_lists($database);
+        foreach ($lists as $list) : ?>
+            <?php
+            $title = $list['title'];
+            $id = $list['id'];
 
-        ?>
-        <li>
+            ?>
+            <li>
+                <h4><?php echo $title ?></h4>
+                <a href="loggedin.php?id=<?= $id; ?>&title=<?= $title; ?>">view</a>
+                <form action="/app/lists/delete.php" method="post">
+                    <button name="delete-list" type="submit" value="<?= $id ?>">X</button>
+                </form>
+            </li>
 
-            <a href="loggedin.php?id=<?= $id; ?>&title=<?= $title; ?>"><?php echo $title; ?></a>
-            <form action="/app/lists/delete.php" method="post">
-                <button name="delete-list" type="submit" value="<?= $id ?>">Delete</button>
-            </form>
-
-        </li>
-
-    <?php endforeach ?>
-</ul>
+        <?php endforeach ?>
+    </ul>
+</div>
 <?php
 // echo $_GET['title'];
 ?>
