@@ -7,14 +7,18 @@ header {
 }
 header {
   background-color: black;
-
   height: 4rem;
   font-family: sans-serif;
 }
 .nav-buttons {
-  width: 8rem;
+  width: 10rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+.nav-buttons a:last-child {
+  border: 1px solid lightcoral;
+  padding: 5px;
 }
 .logo {
   font-size: 24px;

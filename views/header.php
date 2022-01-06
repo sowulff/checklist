@@ -19,8 +19,9 @@
         <?php if (isset($_SESSION['user'])) { ?>
             <div class="logo"><a href="/">myList.</a></div>
             <div class="nav-buttons">
-                <a href="/app/users/logout.php">logout</a>
+                <a href="/loggedin.php">todo</a>
                 <a href="profile.php">profile</a>
+                <a href="/app/users/logout.php">logout</a>
             </div>
 
         <?php } else { ?>
