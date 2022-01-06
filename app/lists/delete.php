@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
-// In this file we delete tasks in the database.
+// In this file we delete lists in the database.
 
-if (isset($_POST['delete-task'])) {
-    $taskId =  $_POST['delete-task'];
+if (isset($_POST['delete-list'])) {
+    $listId =  $_POST['delete-list'];
 
     $statement = $database->prepare('DELETE FROM lists WHERE id = :id');
-    $statement->bindParam(':id', $taskId, PDO::PARAM_INT);
+    $statement->bindParam(':id', $listId, PDO::PARAM_INT);
 
     $statement->execute();
 }

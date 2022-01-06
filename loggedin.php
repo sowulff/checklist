@@ -27,8 +27,8 @@ endif; ?>
 
             <a href="loggedin.php?id=<?= $id; ?>&title=<?= $title; ?>"><?php echo $title; ?></a>
             <form action="/app/lists/delete.php" method="post">
-                <button name="delete-task" type="submit" value="<?= $id ?>">Delete</button>
-            </form><br>
+                <button name="delete-list" type="submit" value="<?= $id ?>">Delete</button>
+            </form>
 
         </li>
 
@@ -82,15 +82,19 @@ endif; ?>
         if (isset($_GET['id'])) :
             $tasks = get_tasks($database);
             foreach ($tasks as $task) :
-                if ($task['list_id'] = $_GET['id']) :
-        ?>
+                if ($task['list_id'] = $_GET['id']) : ?>
                     <li>
                         <?php echo $task['list_id']; ?>
                         <form action="/app/tasks/create.php" method="post">
                             <input type="checkbox" id="list-checkbox" name="list-checkbox">
                             <label for="list-checkbox"><?= $task['title'] ?></label>
                         </form>
+
+                        <form action="/app/tasks/delete.php" method="post">
+                            <button name="delete-task" type="submit" value="<?= $taskId ?>">Delete</button>
+                        </form>
                     </li>
+
                 <?php endif; ?>
             <?php endforeach ?>
     </ul>
