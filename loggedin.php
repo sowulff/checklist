@@ -25,14 +25,14 @@ endif; ?>
 
             ?>
             <li>
-                <h4><?php echo $title ?></h4>
-                <a href="loggedin.php?id=<?= $id; ?>&title=<?= $title; ?>">open</a>
+                <a href="loggedin.php?id=<?= $id; ?>&title=<?= $title; ?>"><?php echo $title ?></a>
                 <form action="/app/lists/delete.php" method="post">
                     <button name="delete-list" type="submit" value="<?= $id ?>">X</button>
                 </form>
+                <form action="/app/lists/edit.php" method="post">
+                    <button name="edit-list" type="submit" value="<?= $id ?>">edit</button>
+                </form>
             </li>
-
-
         <?php endforeach ?>
     </ul>
 </div>
@@ -52,13 +52,6 @@ endif; ?>
     <div class="todo-header">
         <h2 class="list-title"><?= $_GET['title']; ?></h2>
     </div>
-
-    <div class="delete-stuff">
-        <button class="delete MARKED">Tasks for today</button>
-        <button class="delete MARKED">View all tasks</button>
-        <button class="delete MARKED">Delete completed tasks</button>
-        <button class="delete MARKED">Delete all tasks ans list</button>
-    </div>
 </div>
 
 
@@ -70,7 +63,7 @@ endif; ?>
         if (isset($_GET['id'])) :
             $tasks = get_tasks($database);
             foreach ($tasks as $task) :
-                if ($task['list_id'] = $_GET['id']) : ?>
+                if ($task['list_id'] === $_GET['id']) : ?>
                     <li>
                         <?php echo $task['list_id']; ?>
                         <form action="/app/tasks/completed.php" method="post">
@@ -110,3 +103,10 @@ endif; ?>
         <button class="create-task" aria-label="create new task">+</button>
     </div>
 </form>
+
+<div class="delete-stuff">
+    <button class="delete MARKED">All tasks for today</button>
+    <button class="delete MARKED">View all tasks</button>
+    <button class="delete MARKED">Delete completed tasks</button>
+    <button class="delete MARKED">Delete all tasks ans list</button>
+</div>
