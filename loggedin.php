@@ -51,11 +51,13 @@ endif; ?>
 <div class="todo-list">
     <div class="todo-header">
         <h2 class="list-title"><?= $_GET['title']; ?></h2>
-        <p class="task-count">X tasks remaining</p>
     </div>
 
     <div class="delete-stuff">
-        <button class="delete MARKED">Clear completed tasks</button>
+        <button class="delete MARKED">Tasks for today</button>
+        <button class="delete MARKED">View all tasks</button>
+        <button class="delete MARKED">Delete completed tasks</button>
+        <button class="delete MARKED">Delete all tasks ans list</button>
     </div>
 </div>
 
@@ -71,16 +73,22 @@ endif; ?>
                 if ($task['list_id'] = $_GET['id']) : ?>
                     <li>
                         <?php echo $task['list_id']; ?>
-                        <form action="/app/tasks/create.php" method="post">
+                        <form action="/app/tasks/completed.php" method="post">
                             <input type="checkbox" id="list-checkbox" name="list-checkbox">
                             <label for="list-checkbox"><?= $task['title'] ?></label>
                         </form>
 
-                        <form action="/app/tasks/delete.php" method="post">
-                            <button name="delete-task" type="submit" value="<?= $taskId ?>">Delete</button>
+
+                        <form action="/app/tasks/edit-task" method="post">
+                            <button name="edit-task" value="<?= $task['id'] ?>" type="submit">edit</button>
+                        </form>
+
+                        <form action=" /app/tasks/delete.php" method="post">
+                            <button name="delete-task" type="submit" value="<?= $task['id'] ?>">Delete</button>
                         </form>
                     </li>
-
+                    <p>description: <?php echo $task['content'] ?></p>
+                    <p>deadline: <?php echo $task['deadline_at'] ?></p>
                 <?php endif; ?>
             <?php endforeach ?>
     </ul>
@@ -94,11 +102,11 @@ endif; ?>
         <input id="title" name="title" type="text" class="new-task" placeholder="new task name" />
     </div>
     <div>
-        <input id="title" name="title" type="text" class="new-task" placeholder="description" />
+        <input id="content" name="content" type="text" class="new-task" placeholder="description" />
 
     </div>
     <div>
-        <input id="date" name="date" type="date" class="new-task" placeholder="due date" />
-        <button class="create" aria-label="create new task">+</button>
+        <input id="date" name="date" type="date" class="new-task" />
+        <button class="create-task" aria-label="create new task">+</button>
     </div>
 </form>

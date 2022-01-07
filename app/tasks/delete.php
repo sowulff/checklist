@@ -5,7 +5,7 @@ declare(strict_types=1);
 require __DIR__ . '/../autoload.php';
 
 // In this file we delete tasks in the database.
-//  NOT WORKING
+
 
 if (isset($_POST['delete-task'])) {
     $taskId =  $_POST['delete-task'];
