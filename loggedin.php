@@ -72,16 +72,34 @@ endif; ?>
                         </form>
 
 
-                        <form action="/app/tasks/edit-task" method="post">
-                            <button name="edit-task" value="<?= $task['id'] ?>" type="submit">edit</button>
+                        <form action="/app/tasks/update" method="post">
+                            <button class="edit-task" name="edit-task" value="<?= $task['id'] ?>" type="submit">edit</button>
                         </form>
 
                         <form action=" /app/tasks/delete.php?id=<?= $_GET['id'] ?>&title=<?= $title; ?>" method="post">
                             <button name="delete-task" type="submit" value="<?= $task['id'] ?>">Delete</button>
                         </form>
                     </li>
-                    <p>description: <?php echo $task['content'] ?></p>
-                    <p>deadline: <?php echo $task['deadline_at'] ?></p>
+
+                    <!-- UPDATE TASK  -->
+
+                    <form action="/app/tasks/update.php?id=<?= $_GET['id'] ?>&title=<?= $title; ?>" method="post">
+                        <div>
+                            <input id="title" name="title" type="text" class="new-task" placeholder="new task name" />
+                        </div>
+                        <div>
+                            <input id="content" name="content" type="text" class="new-task" placeholder="description" />
+
+                        </div>
+                        <div>
+                            <input id="date" name="date" type="date" class="new-task" />
+                            <button class="create-task" aria-label="create new task">+</button>
+                        </div>
+                    </form>
+                    <div class="info-about-task">
+                        <p>description: <?php echo $task['content'] ?></p>
+                        <p>deadline: <?php echo $task['deadline_at'] ?></p>
+                    </div>
                 <?php endif; ?>
             <?php endforeach ?>
     </ul>
