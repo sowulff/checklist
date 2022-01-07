@@ -9,10 +9,12 @@ require __DIR__ . '/../autoload.php';
 
 if (isset($_POST['delete-task'])) {
     $taskId =  $_POST['delete-task'];
-
+    $list_id = $_GET['id'];
+    $list_title = $_GET['title'];
     $statement = $database->prepare('DELETE FROM tasks WHERE id = :id');
     $statement->bindParam(':id', $taskId, PDO::PARAM_INT);
 
     $statement->execute();
 }
-redirect('/loggedin.php');
+// redirect('/loggedin.php');
+redirect('/loggedin.php?id=' . $list_id . '&title=' . $list_title);

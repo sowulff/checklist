@@ -12,6 +12,7 @@ require __DIR__ . '/../autoload.php';
 // insert tasks into database
 if (isset($_POST['title'])) {
     $list_id = $_GET['id'];
+    $list_title = $_GET['title'];
     $deadline_at = $_POST['date'];
     $content = $_POST['content'];
     $title = trim($_POST['title']);
@@ -28,4 +29,5 @@ if (isset($_POST['title'])) {
 
     $statement->execute();
 }
-redirect('/loggedin.php');
+echo $list_title, $list_id;
+redirect('/loggedin.php?id=' . $list_id . '&title=' . $list_title);

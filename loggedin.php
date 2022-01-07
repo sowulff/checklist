@@ -65,7 +65,7 @@ endif; ?>
             foreach ($tasks as $task) :
                 if ($task['list_id'] === $_GET['id']) : ?>
                     <li>
-                        <?php echo $task['list_id']; ?>
+
                         <form action="/app/tasks/completed.php" method="post">
                             <input type="checkbox" id="list-checkbox" name="list-checkbox">
                             <label for="list-checkbox"><?= $task['title'] ?></label>
@@ -76,7 +76,7 @@ endif; ?>
                             <button name="edit-task" value="<?= $task['id'] ?>" type="submit">edit</button>
                         </form>
 
-                        <form action=" /app/tasks/delete.php" method="post">
+                        <form action=" /app/tasks/delete.php?id=<?= $_GET['id'] ?>&title=<?= $title; ?>" method="post">
                             <button name="delete-task" type="submit" value="<?= $task['id'] ?>">Delete</button>
                         </form>
                     </li>
@@ -90,7 +90,7 @@ endif; ?>
             echo 'please choose a list.'
 ?>
 <?php endif; ?>
-<form action="/app/tasks/create.php?id=<?= $_GET['id'] ?>" method="post">
+<form action="/app/tasks/create.php?id=<?= $_GET['id'] ?>&title=<?= $title; ?>" method="post">
     <div>
         <input id="title" name="title" type="text" class="new-task" placeholder="new task name" />
     </div>
