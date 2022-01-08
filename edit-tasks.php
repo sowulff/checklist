@@ -32,6 +32,3 @@ $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
 </form>
 
 <!-- DELETE TASK BUTTON/FORM -->
-
-
-<?php require __DIR__ . '/views/footer.php'; ?>

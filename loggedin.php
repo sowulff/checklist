@@ -32,7 +32,7 @@ endif; ?>
                             <input name="delete-list" type="hidden" value="<?= $list['id'] ?>">
                             <button class="loggedin-btn">X</button>
                         </form>
-                        <form action="/app/lists/edit.php" method="post">
+                        <form action="/edit-list.php" method="post">
                             <button class="loggedin-btn" name="edit-list" type="submit" value="<?= $id ?>">edit</button>
                         </form>
                     </li>
@@ -48,13 +48,16 @@ endif; ?>
         </form>
 
 
-        <div class="delete-stuff">
+        <div class="show-stuff">
             <form action="/loggedin.php" method="post">
-                <button name="all-tasks" type="submit" class="loggedin-btn">All tasks for today</button>
+                <button name="all-tasks" type="submit" class="loggedin-btn">All tasks</button>
             </form>
-            <button class="loggedin-btn">View all tasks</button>
-            <button class="loggedin-btn">Delete completed tasks</button>
-            <button class="loggedin-btn">Delete all tasks ans list</button>
+            <form action="/loggedin.php" method="post">
+                <button name="tasks-for-today" type="submit" class="loggedin-btn">Tasks for today</button>
+            </form>
+            <form action="/loggedin.php" method="post">
+                <button class="loggedin-btn">Delete completed tasks</button>
+            </form>
 
         </div>
 
@@ -99,6 +102,49 @@ endif; ?>
         <?php endif;
         ?>
 
+        <!-- TASKS DONE TODAY  -->
+
+        <?php $tasksToday = get_tasks_done_doday($database);
+        if (isset($_POST['tasks-for-today'])) : ?>
+            <div class="task-container">
+                <h3>Todo</h3>
+                <ul>
+                    <?php foreach ($tasksToday as $taskToday) : ?>
+                        <li>
+                            <form action="/app/tasks/completed.php" method="POST">
+                                <input type="hidden" value="<?= $taskToday['id'] ?>" name="id" />
+                                <input type="checkbox" name="is_completed" value="<?= $taskToday['id'] ?>" name="id" />
+                                <label for="is_completed">
+                                    <?= $taskToday['title']; ?>
+                                </label>
+
+                                <div>
+                                    <button type="submit">Submit</button>
+                                </div>
+                            </form>
+                            <form action="/edit-tasks.php" method="post">
+                                <input type="hidden" value="<?= $task['id'] ?>" name="id" />
+                                <button class="loggedin-btn" type="submit">EDIT</button>
+                            </form>
+                            <form action="/app/tasks/delete.php" method="post">
+                                <button class="loggedin-btn" name="delete-task" type="submit" value="<?= $task['id'] ?>">Delete</button>
+                            </form>
+                            <div class="info-about-task">
+                                <p>description: <?php echo $taskToday['content'] ?></p>
+                                <p>deadline: <?php echo $taskToday['deadline_at'] ?></p>
+                                <!-- VILL VISA VILKEN LISTA TASKEN TILLHÖR -->
+                                <p>list: <?php echo $taskToday['list_id'] ?></p>
+
+                            </div>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        <?php else : echo 'No tasks for today'
+        ?>
+        <?php endif;
+        ?>
+
 
 
 
@@ -108,7 +154,7 @@ endif; ?>
         <!-- ADD TASK IN LIST  -->
 
         <?php if (isset($_GET['id'])) : ?>
-            <h3 class="list-title"><?= $_GET['title']; ?></h3>
+            <h2 class="list-title"><?= $_GET['title']; ?></h2>
             <form action="/app/tasks/create.php?id=<?= $_GET['id'] ?>&title=<?= $title; ?>" method="post">
                 <div>
                     <label for="title">Add task</label>

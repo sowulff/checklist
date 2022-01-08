@@ -17,6 +17,7 @@ if (isset($_POST['title'], $_POST['description'], $_POST['deadline'])) {
     $statement->bindParam(':newDescription', $newContent, PDO::PARAM_STR);
     $statement->bindParam(':newDeadline', $newDeadline, PDO::PARAM_STR);
     $statement->bindParam(':id', $id, PDO::PARAM_INT);
+
     $statement->execute();
 }
 

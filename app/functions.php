@@ -54,3 +54,19 @@ function get_tasks(object $database)
     $allTasks = $statement->fetchAll(PDO::FETCH_ASSOC);
     return $allTasks;
 }
+
+function get_tasks_done_doday(object $database)
+{
+    $user_id = $_SESSION['user']['id'];
+    $deadline_at = date('Y-m-d');
+
+    $statement = $database->prepare("SELECT * from tasks WHERE user_id = :user_id AND deadline_at = :deadline_at");
+    $statement->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $statement->bindParam(':deadline_at', $deadline_at, PDO::PARAM_STR);
+
+    $statement->execute();
+
+    $tasks_due_today = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $tasks_due_today;
+}
