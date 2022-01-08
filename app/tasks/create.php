@@ -29,5 +29,5 @@ if (isset($_POST['title'])) {
 
     $statement->execute();
 }
-echo $list_title, $list_id;
+
 redirect('/loggedin.php?id=' . $list_id . '&title=' . $list_title);

@@ -1,38 +1,122 @@
-/* lISTS */
-.list-container ul {
-  margin: 0;
-  padding: 0;
-}
 .list-container li {
   display: flex;
   align-items: center;
   gap: 20px;
   font-size: 24px;
 }
-.list-container h4 {
-  padding: 0;
-  margin: 0;
-  font-weight: 300;
-}
+
 .list-container a {
   text-decoration: none;
   font-size: 18px;
-
   font-weight: 600;
 }
 
-.list-container li button {
-  background: none;
-  color: tomato;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 16px;
-}
 /* TASKS  */
 
-.task-container li {
+.loggedin-conatiner li {
   display: flex;
   gap: 20px;
 }
+
+/* EDIT TASK  */
+.list-container ul,
+.task-container ul {
+  margin: 0;
+  padding: 0;
+}
+
+.loggedin-conatiner input,
+.loggedin-conatiner button {
+  outline: none;
+}
+.loggedin-btn {
+  background: none;
+  border: 0px;
+  color: #888;
+  font-size: 15px;
+  width: 60px;
+  margin: 10px 0 0;
+  font-family: Lato, sans-serif;
+  cursor: pointer;
+}
+
+/* Heading */
+.loggedin-container h3 {
+  color: #333;
+  font-weight: 700;
+  font-size: 15px;
+  border-bottom: 2px solid #333;
+  padding: 30px 0 10px;
+  margin: 0;
+  text-transform: uppercase;
+}
+.list-title {
+  background-color: lightcoral;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  width: 50%;
+  padding: 7px;
+  font-family: sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+input[type='text'] {
+  margin: 0;
+  font-size: 18px;
+  line-height: 18px;
+  height: 18px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 6px;
+  font-family: Lato, sans-serif;
+  color: #888;
+}
+input[type='text']:focus {
+  color: #333;
+}
+
+/* New Task */
+label[for='new-task'] {
+  display: block;
+  margin: 0 0 20px;
+}
+input#new-task {
+  float: left;
+  width: 318px;
+}
+
+/* Task list */
+.list-container li,
+.task-container li {
+  overflow: hidden;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+label[for='title'] {
+  color: #333;
+  font-weight: 700;
+  font-size: 15px;
+  border-bottom: 2px solid #333;
+  padding: 30px 0 10px;
+  margin: 0;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+li > label {
+  font-size: 18px;
+  line-height: 40px;
+  width: 237px;
+  padding: 0 0 0 11px;
+}
+li > input[type='text'] {
+  width: 226px;
+}
+li > .delete:hover {
+  color: #cf2323;
+}
+
+/* .edit-mode label {
+  display: none;
+} */
