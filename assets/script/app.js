@@ -23,3 +23,10 @@ const task = document.querySelector('input[type=checkbox]');
 // task.addEventListener('click', () => form.submit());
 
 // form.submit()
+
+// const content = document.querySelector('.info-about-task');
+// const showContentBtn = document.querySelector('.show-more');
+
+// showContentBtn.addEventListener('click', (e) => {
+//   content.classList.toggle('show');
+// });

@@ -1,6 +1,7 @@
 .list-container li {
   display: flex;
   align-items: center;
+
   gap: 20px;
   font-size: 24px;
 }
@@ -13,11 +14,23 @@
 
 /* TASKS  */
 
-.loggedin-conatiner li {
+.task-container li {
   display: flex;
   gap: 20px;
+  justify-content: space-between;
 }
-
+.edit-delete-buttons {
+  display: flex;
+}
+.info-about-task {
+  overflow: hidden;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+  display: none;
+}
+/* .show {
+  display: block;
+} */
 /* EDIT TASK  */
 .list-container ul,
 .task-container ul {
@@ -87,12 +100,7 @@ input#new-task {
 }
 
 /* Task list */
-.list-container li,
-.task-container li {
-  overflow: hidden;
-  padding: 20px 0;
-  border-bottom: 1px solid #eee;
-}
+
 label[for='title'] {
   color: #333;
   font-weight: 700;
