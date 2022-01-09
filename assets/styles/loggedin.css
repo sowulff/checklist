@@ -16,9 +16,13 @@
   border: 0;
   color: #888;
   font-size: 24px;
-  margin: 10px 0 0;
+  margin: 0;
   font-family: sans-serif;
   cursor: pointer;
+  padding: 0x;
+}
+.input-date {
+  margin-left: 10px;
 }
 .edit-delete-buttons {
   padding-right: 40px;
@@ -151,3 +155,12 @@ li > .delete:hover {
 /* .edit-mode label {
   display: none;
 } */
+
+.show-stuff {
+  margin: 10px;
+  padding-top: 20px;
+  display: flex;
+}
+.show-stuff button:active {
+  color: lightcoral;
+}

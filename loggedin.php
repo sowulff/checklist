@@ -5,7 +5,7 @@ require __DIR__ . '/views/header.php';
 
 <?php if (isset($_SESSION['user'])) : ?>
     <p>Welcome, <?= $_SESSION['user']['name']; ?>!</p>
-    <!-- Here is all of the lists of the user  -->
+
     <!-- CREATE NEW LIST  -->
     <form class="new-list-form" action="/app/lists/create.php" method="post">
         <label for="title">Add list</label>
@@ -59,9 +59,7 @@ if (!empty($lists)) : ?>
             <form action="/loggedin.php" method="post">
                 <button name="tasks-for-today" type="submit" class="loggedin-btn">Tasks for today</button>
             </form>
-            <form action="/loggedin.php" method="post">
-                <button class="loggedin-btn">Delete completed tasks</button>
-            </form>
+
 
         </div>
 
@@ -157,9 +155,9 @@ if (!empty($lists)) : ?>
 
         <?php if (isset($_GET['id'])) : ?>
             <h2 class="list-title"><?= $_GET['title']; ?></h2>
-            <form action="/app/tasks/create.php?id=<?= $_GET['id'] ?>&title=<?= $title; ?>" method="post">
+            <form class="new-list-form" action="/app/tasks/create.php?id=<?= $_GET['id'] ?>&title=<?= $title; ?>" method="post">
+                <label for="title">Add task</label>
                 <div>
-                    <label for="title">Add task</label>
                     <input id="title" name="title" type="text" class="new-task" placeholder="new task name" />
                 </div>
                 <div>
@@ -167,8 +165,8 @@ if (!empty($lists)) : ?>
 
                 </div>
                 <div>
-                    <input id="date" name="date" type="date" class="new-task" />
-                    <button class="loggedin-btn" class="create-task" aria-label="create new task">+</button>
+                    <input class="input-date" id="date" name="date" type="date" class="new-task" />
+                    <button class="loggedin-btn-plus" class="create-task" aria-label="create new task">+</button>
                 </div>
             </form>
 
@@ -255,6 +253,9 @@ if (!empty($lists)) : ?>
                     <?php endforeach ?>
                 </ul>
             </div>
+            <form action="/loggedin.php" method="post">
+                <button class="loggedin-btn">Delete completed tasks</button>
+            </form>
         <?php endif; ?>
         <?php
 
