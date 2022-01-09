@@ -188,9 +188,9 @@ if (!empty($lists)) : ?>
                                         <?= $task['title']; ?>
                                     </label>
 
-                                    <div>
+                                    <!-- <div>
                                         <button type="submit">Submit</button>
-                                    </div>
+                                    </div> -->
                                 </form>
 
                                 <div class="edit-delete-buttons">
@@ -226,12 +226,10 @@ if (!empty($lists)) : ?>
                                     <label for="is_completed">
                                         <?= $task['title']; ?>
                                     </label>
-                                    <div>
+                                    <!-- <div>
                                         <button type="submit">Submit</button>
-                                    </div>
-                                    <div>
-                                        <button class="show-more">show more</button>
-                                    </div>
+                                    </div> -->
+
                                 </form>
 
                                 <div class="edit-delete-buttons">
@@ -245,7 +243,7 @@ if (!empty($lists)) : ?>
                                     </form>
                                 </div>
                             </li>
-                            <div class="info-about-task">
+                            <div class="info-about-task show">
                                 <p>description: <?php echo $task['content'] ?></p>
                                 <p>completed: <?php echo $task['completed_at'] ?></p>
                             </div>
@@ -254,7 +252,7 @@ if (!empty($lists)) : ?>
                 </ul>
             </div>
             <form action="/loggedin.php" method="post">
-                <button class="loggedin-btn">Delete completed tasks</button>
+                <button class="loggedin-btn-delete">Delete completed tasks</button>
             </form>
         <?php endif; ?>
         <?php
