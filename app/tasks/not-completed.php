@@ -15,13 +15,13 @@ if (isset($_POST['id'])) {
     $id = $_POST['id'];
 
 
-    $doneDate = date("Y-m-d");
+    $myNull = null;
 
     $statement = $database->prepare(
         'UPDATE tasks SET completed_at = :date WHERE id = :id'
     );
     $statement->bindParam(':id', $id, PDO::PARAM_INT);
-    $statement->bindParam(':date', $doneDate, PDO::PARAM_STR);
+    $statement->bindParam(':date', $myNull, PDO::PARAM_NULL);
 
     $statement->execute();
     $user = $statement->fetch(PDO::FETCH_ASSOC);

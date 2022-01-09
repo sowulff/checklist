@@ -19,7 +19,7 @@ $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
 } ?>
 
 <form action="app/tasks/update.php" method="post" enctype="multipart/form-data">
-    <input type="hidden" value="<?= $id ?>" name="id">
+    <input type="hidden" value="<?= $id ?>" name="id" id="id">
 
     <label for="title">Title </label>
     <input class="form-control" type="name" name="title" id="title" value="<?php echo $task['title'] ?>">

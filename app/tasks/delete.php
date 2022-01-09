@@ -7,8 +7,8 @@ require __DIR__ . '/../autoload.php';
 // In this file we delete tasks in the database.
 
 
-if (isset($_POST['delete-task'])) {
-    $taskId =  $_POST['delete-task'];
+if (isset($_POST['id'])) {
+    $taskId =  $_POST['id'];
     $list_id = $_GET['id'];
     $list_title = $_GET['title'];
     $statement = $database->prepare('DELETE FROM tasks WHERE id = :id');

@@ -22,11 +22,9 @@ const task = document.querySelector('input[type=checkbox]');
 // When the user clicks on the checkbox the form will automagically submit.
 // task.addEventListener('click', () => form.submit());
 
-// form.submit()
+const content = document.querySelector('.info-about-task');
+const showContentBtn = document.querySelector('.show-more');
 
-// const content = document.querySelector('.info-about-task');
-// const showContentBtn = document.querySelector('.show-more');
-
-// showContentBtn.addEventListener('click', (e) => {
-//   content.classList.toggle('show');
-// });
+showContentBtn.addEventListener('click', (e) => {
+  content.classList.add('show');
+});

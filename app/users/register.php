@@ -29,5 +29,5 @@ if (isset($_POST['name'], $_POST['email'], $_POST['password'], $_POST['password-
     $statement->bindParam(':password', $password, PDO::PARAM_STR);
     $statement->execute();
 
-    redirect('/login.php');
+    redirect('/');
 }

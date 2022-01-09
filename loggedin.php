@@ -6,47 +6,50 @@ require __DIR__ . '/views/header.php';
 <?php if (isset($_SESSION['user'])) : ?>
     <p>Welcome, <?= $_SESSION['user']['name']; ?>!</p>
     <!-- Here is all of the lists of the user  -->
-
+    <!-- CREATE NEW LIST  -->
+    <form class="new-list-form" action="/app/lists/create.php" method="post">
+        <label for="title">Add list</label>
+        <div>
+            <input id="title" name="title" type="text" class="new-list" placeholder="new list name" aria-label="new list name" />
+            <button class="loggedin-btn-plus">+</button>
+        </div>
+    </form>
 
 <?php
-
-
 endif; ?>
-<div class="loggedin-container">
-
-    <h3>My Lists</h2>
-        <div class="list-container">
-            <ul>
-                <?php
-                $lists = get_lists($database);
-                foreach ($lists as $list) : ?>
+<?php
+$lists = get_lists($database);
+if (!empty($lists)) : ?>
+    <div class="loggedin-container">
+        <h3>My Lists</h2>
+            <div class="list-container">
+                <ul>
                     <?php
-                    $title = $list['title'];
-                    $id = $list['id'];
+                    foreach ($lists as $list) : ?>
+                        <?php
+                        $title = $list['title'];
+                        $id = $list['id'];
 
-                    ?>
-                    <li>
-                        <a href="loggedin.php?id=<?= $id; ?>&title=<?= $title; ?>"><?php echo $title ?></a>
-                        <div class="edit-delete-buttons">
-                            <form action="/edit-list.php" method="post">
-                                <button class="loggedin-btn" name="edit-list" type="submit" value="<?= $id ?>">edit</button>
-                            </form>
-                            <form action="/app/lists/delete.php" method="post">
-                                <input name="delete-list" type="hidden" value="<?= $list['id'] ?>">
-                                <button class="loggedin-btn">delete</button>
-                            </form>
-                        </div>
-                    </li>
-                <?php endforeach ?>
-            </ul>
-        </div>
+                        ?>
+                        <li>
+                            <a href="loggedin.php?id=<?= $id; ?>&title=<?= $title; ?>"><?php echo $title ?></a>
+                            <div class="edit-delete-buttons">
+                                <form action="/edit-list.php" method="post">
+                                    <input name="edit-list" type="hidden" value="<?= $list['id'] ?>">
+                                    <button class="loggedin-btn">edit</button>
+                                </form>
+                                <form action="/app/lists/delete.php" method="post">
+                                    <input name="delete-list" type="hidden" value="<?= $list['id'] ?>">
+                                    <button class="loggedin-btn">delete</button>
+                                </form>
+                            </div>
+                        </li>
+                    <?php endforeach ?>
+                </ul>
+            </div>
+        <?php endif; ?>
 
-        <!-- CREATE NEW LIST  -->
-        <form action="/app/lists/create.php" method="post">
-            <label for="title">Add list</label>
-            <input id="title" name="title" type="text" class="new-list" placeholder="new list name" aria-label="new list name" />
-            <button class="loggedin-btn">+</button>
-        </form>
+
 
 
         <div class="show-stuff">
@@ -140,8 +143,7 @@ endif; ?>
                     <?php endforeach; ?>
                 </ul>
             </div>
-        <?php else : echo 'No tasks for today'
-        ?>
+
         <?php endif;
         ?>
 
@@ -180,9 +182,10 @@ endif; ?>
                     foreach ($tasks as $task) :
                         if ($task['list_id'] === $_GET['id'] && $task['completed_at'] === null) : ?>
                             <li>
+                                <?php $isCompleted = isset($_POST['is_completed']); ?>
                                 <form action="/app/tasks/completed.php" method="POST">
                                     <input type="hidden" value="<?= $task['id'] ?>" name="id" />
-                                    <input type="checkbox" name="is_completed" value="<?= $task['id'] ?>" name="id" />
+                                    <input type="checkbox" name="is_completed" id="is_completed" />
                                     <label for="is_completed">
                                         <?= $task['title']; ?>
                                     </label>
@@ -211,46 +214,48 @@ endif; ?>
                 </ul>
             </div>
 
-        <?php endif; ?>
 
-        <div class="task-container">
-            <h3>Completed</h3>
-            <ul>
-                <?php foreach ($tasks as $task) :
-                    if ($task['completed_at'] !== null) : ?>
-                        <li>
-                            <form action="/app/tasks/completed.php" method="POST">
-                                <input type="hidden" value="<?= $task['id'] ?>" name="id" />
-                                <input type="checkbox" name="is_completed" value="<?= $task['id'] ?>" name="id" />
-                                <label for="is_completed">
-                                    <?= $task['title']; ?>
-                                </label>
-                                <div>
-                                    <button type="submit">Submit</button>
-                                </div>
-                                <div>
-                                    <button class="show-more">show more</button>
-                                </div>
-                            </form>
+            <div class="task-container">
+                <h3>Completed</h3>
+                <ul>
+                    <?php foreach ($tasks as $task) :
+                        if ($task['completed_at'] !== null) : ?>
+                            <li>
+                                <form action="/app/tasks/not-completed.php" method="POST">
 
-                            <div class="edit-delete-buttons">
-                                <form action="/edit-tasks.php" method="post">
                                     <input type="hidden" value="<?= $task['id'] ?>" name="id" />
-                                    <button class="loggedin-btn" type="submit">edit</button>
+                                    <input type="checkbox" name="is_completed" id="is_completed" checked />
+                                    <label for="is_completed">
+                                        <?= $task['title']; ?>
+                                    </label>
+                                    <div>
+                                        <button type="submit">Submit</button>
+                                    </div>
+                                    <div>
+                                        <button class="show-more">show more</button>
+                                    </div>
                                 </form>
-                                <form action="/app/tasks/delete.php?id=<?= $_GET['id'] ?>&title=<?= $title; ?>" method="post">
-                                    <button class="loggedin-btn" name="delete-task" type="submit" value="<?= $task['id'] ?>">delete</button>
-                                </form>
+
+                                <div class="edit-delete-buttons">
+                                    <form action="/edit-tasks.php" method="post">
+                                        <input type="hidden" value="<?= $task['id'] ?>" name="id" />
+                                        <button class="loggedin-btn" type="submit">edit</button>
+                                    </form>
+                                    <form action="/app/tasks/delete.php" method="post">
+                                        <input type="hidden" value="<?= $task['id'] ?>" name="id" id="id" />
+                                        <button class="loggedin-btn" type="submit">delete</button>
+                                    </form>
+                                </div>
+                            </li>
+                            <div class="info-about-task">
+                                <p>description: <?php echo $task['content'] ?></p>
+                                <p>completed: <?php echo $task['completed_at'] ?></p>
                             </div>
-                        </li>
-                        <div class="info-about-task show">
-                            <p>description: <?php echo $task['content'] ?></p>
-                            <p>completed: <?php echo $task['completed_at'] ?></p>
-                        </div>
-                    <?php endif; ?>
-                <?php endforeach ?>
-            </ul>
-        </div>
+                        <?php endif; ?>
+                    <?php endforeach ?>
+                </ul>
+            </div>
+        <?php endif; ?>
         <?php
 
         ?>
@@ -289,6 +294,6 @@ endif; ?>
     </ul>
 </div> -->
 
-</div>
+    </div>
 
-<?php require __DIR__ . '/views/footer.php'; ?>
+    <?php require __DIR__ . '/views/footer.php'; ?>

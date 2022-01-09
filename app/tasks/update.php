@@ -21,4 +21,4 @@ if (isset($_POST['title'], $_POST['description'], $_POST['deadline'])) {
     $statement->execute();
 }
 
-redirect('/loggedin.php?id=' . $list_id . '&title=' . $list_title);
+redirect('/loggedin.php');
