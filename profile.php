@@ -10,13 +10,17 @@
         <img src="uploads/<?php echo $userImage ?>" class="image">
     </div>
 <?php else : ?>
-    <img src="/uploads/default.jpeg" alt="Default profile picture">
+    <div class="container-profile-image">
+        <img src="/uploads/default.jpeg" alt="Default profile picture" class="image">
+    </div>
 <?php endif; ?>
 
-<form action="/app/users/upload.php" method="post" enctype="multipart/form-data">
+<form class="avatar-form" action="/app/users/upload.php" method="post" enctype="multipart/form-data">
     <label for="avatar">Change profile picture</label>
-    <input type="file" name="avatar" id="avatar" accept=".png, .jpg, .jpeg">
-    <button type="submit">Upload</button>
+    <div>
+        <input type="file" name="avatar" id="avatar" accept=".png, .jpg, .jpeg">
+        <button class="update-profile" type="submit">Upload</button>
+    </div>
 </form>
 
 
