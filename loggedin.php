@@ -71,16 +71,14 @@ endif; ?>
                     <?php foreach ($tasks as $task) : ?>
                         <li>
                             <form action="/app/tasks/completed.php" method="POST">
-                                <input type="hidden" value="<?= $task['id'] ?>" name="id" />
-                                <input type="checkbox" name="is_completed" value="<?= $task['id'] ?>" name="id" />
+                                <input type="hidden" value="<?= $task['id'] ?>" name="id" id="id" />
+                                <input type="checkbox" name="is_completed" id="is_completed" />
                                 <label for="is_completed">
                                     <?= $task['title']; ?>
                                 </label>
 
-                                <div>
-                                    <button type="submit">Submit</button>
-                                </div>
                             </form>
+                            <!-- buttons -->
                             <form action="/edit-tasks.php" method="post">
                                 <input type="hidden" value="<?= $task['id'] ?>" name="id" />
                                 <button class="loggedin-btn" type="submit">EDIT</button>
