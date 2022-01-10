@@ -1,6 +1,7 @@
 <?php
 require __DIR__ . '/app/autoload.php';
 require __DIR__ . '/views/header.php';
+print_r($_SESSION['error']);
 ?>
 
 <?php if (isset($_SESSION['user'])) : ?>
@@ -107,12 +108,13 @@ if (!empty($lists)) : ?>
                                 </form>
 
                                 <div class="edit-delete-buttons">
-                                    <form action="/edit-tasks.php" method="post">
-                                        <input type="hidden" value="<?= $task['id'] ?>" name="id" />
-                                        <button class="loggedin-btn" type="submit">edit</button>
-                                    </form>
-                                    <form action="/app/tasks/delete.php?id=<?= $_GET['id'] ?>&title=<?= $title; ?>" method="post">
-                                        <button class="loggedin-btn" name="delete-task" type="submit" value="<?= $task['id'] ?>">delete</button>
+
+
+                                    <a href="edit-tasks.php">edit</a>
+
+                                    <form action="/app/tasks/delete.php" method="post">
+                                        <input type="hidden" value="<?= $task['id'] ?>" name="id" id="id" />
+                                        <button class="loggedin-btn">delete</button>
                                     </form>
                                 </div>
                             </li>
@@ -146,9 +148,8 @@ if (!empty($lists)) : ?>
                                 </form>
 
                                 <div class="edit-delete-buttons">
-                                    <form action="/edit-tasks.php" method="post">
-                                        <input type="hidden" value="<?= $task['id'] ?>" name="id" />
-                                        <button class="loggedin-btn" type="submit">edit</button>
+
+                                    <a href="edit-tasks.php">edit</a>
                                     </form>
                                     <form action="/app/tasks/delete.php" method="post">
                                         <input type="hidden" value="<?= $task['id'] ?>" name="id" id="id" />
@@ -164,7 +165,7 @@ if (!empty($lists)) : ?>
                     <?php endforeach ?>
                 </ul>
             </div>
-            <form action="/loggedin.php" method="post">
+            <form action="/delete.php" method="post">
                 <button class="loggedin-btn-delete">Delete completed tasks</button>
             </form>
         <?php endif; ?>
