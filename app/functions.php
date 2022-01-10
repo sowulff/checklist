@@ -70,3 +70,15 @@ function get_tasks_done_doday(object $database)
 
     return $tasks_due_today;
 }
+
+function get_list_for_task($id, $database)
+{
+    if ($id) {
+        $statement = $database->query('SELECT lists.title from tasks INNER JOIN lists ON tasks.list_id = lists.id WHERE tasks.id = :id;');
+        $statement->bindParam(':id', $id, PDO::PARAM_INT);
+        $statement->execute();
+        $lists = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        return $lists[0]['title'];
+    };
+}

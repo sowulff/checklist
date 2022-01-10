@@ -167,3 +167,9 @@ li > .delete:hover {
 .show-stuff button:active {
   color: lightcoral;
 }
+.belongs-to-list {
+  background-color: lightcoral;
+  padding: 5px;
+  width: 30%;
+  margin-left: 0;
+}

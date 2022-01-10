@@ -25,7 +25,9 @@ require __DIR__ . '/views/header.php';
         <div class="log-in-container">
             <h2>LOGIN</h2>
 
-            <div class="error-login">Incorrect something.</div>
+
+            <div class="error-login"><?php echo 'wrong lala'; ?></div>
+
 
 
             <form action="app/users/login.php" method="post" class="login-form">

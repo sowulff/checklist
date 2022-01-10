@@ -26,6 +26,7 @@ if (isset($_POST['email'], $_POST['password'])) {
     // page with our custom redirect function.
 
     if (!$user) {
+
         redirect('/index.php');
     }
 

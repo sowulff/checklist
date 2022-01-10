@@ -18,6 +18,7 @@ require __DIR__ . '/views/header.php';
 <?php
 endif; ?>
 <?php
+// SHOW LISTS
 $lists = get_lists($database);
 if (!empty($lists)) : ?>
     <div class="loggedin-container">
@@ -51,104 +52,16 @@ if (!empty($lists)) : ?>
 
 
 
+        <!-- BUTTONS -->
 
         <div class="show-stuff">
-            <form action="/loggedin.php" method="post">
+            <form action="/all-tasks.php" method="post">
                 <button name="all-tasks" type="submit" class="loggedin-btn">All tasks</button>
             </form>
-            <form action="/loggedin.php" method="post">
+            <form action="/tasks-today.php" method="post">
                 <button name="tasks-for-today" type="submit" class="loggedin-btn">Tasks for today</button>
             </form>
-
-
         </div>
-
-        <!-- SHOW ALL LISTS  -->
-        <?php
-        $tasks = get_tasks($database);
-        if (isset($_POST['all-tasks'])) : ?>
-            <div class="task-container">
-                <h3>Todo</h3>
-                <ul>
-                    <?php foreach ($tasks as $task) : ?>
-                        <li>
-
-                            <form action="/app/tasks/completed.php" method="POST">
-                                <input type="hidden" value="<?= $task['id'] ?>" name="id_done" id="id_done" />
-                                <input type="checkbox" name="is_completed" id="is_completed" />
-                                <label for="is_completed">
-                                    <?= $task['title']; ?>
-                                </label>
-
-                            </form>
-                            <!-- buttons -->
-                            <form action="/edit-tasks.php" method="post">
-                                <input type="hidden" value="<?= $task['id'] ?>" name="id" />
-                                <button class="loggedin-btn" type="submit">edit</button>
-                            </form>
-                            <form action="/app/tasks/delete.php" method="post">
-                                <button class="loggedin-btn" name="delete-task" type="submit" value="<?= $task['id'] ?>">delete</button>
-                            </form>
-                            <div class="info-about-task">
-                                <p>description: <?php echo $task['content'] ?></p>
-                                <p>deadline: <?php echo $task['deadline_at'] ?></p>
-                                <!-- VILL VISA VILKEN LISTA TASKEN TILLHÖR -->
-                                <p>list: <?php echo $task['list_id'] ?></p>
-
-                            </div>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-        <?php endif;
-        ?>
-
-        <!-- TASKS DONE TODAY  -->
-
-        <?php $tasksToday = get_tasks_done_doday($database);
-        if (isset($_POST['tasks-for-today'])) : ?>
-            <div class="task-container">
-                <h3>Todo</h3>
-                <ul>
-                    <?php foreach ($tasksToday as $taskToday) : ?>
-                        <li>
-                            <form action="/app/tasks/completed.php" method="POST">
-                                <input type="hidden" value="<?= $taskToday['id'] ?>" name="id" />
-                                <input type="checkbox" name="is_completed" value="<?= $taskToday['id'] ?>" name="id" />
-                                <label for="is_completed">
-                                    <?= $taskToday['title']; ?>
-                                </label>
-
-                                <div>
-                                    <button type="submit">Submit</button>
-                                </div>
-                            </form>
-                            <form action="/edit-tasks.php" method="post">
-                                <input type="hidden" value="<?= $task['id'] ?>" name="id" />
-                                <button class="loggedin-btn" type="submit">edit</button>
-                            </form>
-                            <form action="/app/tasks/delete.php" method="post">
-                                <button class="loggedin-btn" name="delete-task" type="submit" value="<?= $task['id'] ?>">delete</button>
-                            </form>
-                            <div class="info-about-task">
-                                <p>description: <?php echo $taskToday['content'] ?></p>
-                                <p>deadline: <?php echo $taskToday['deadline_at'] ?></p>
-                                <!-- VILL VISA VILKEN LISTA TASKEN TILLHÖR -->
-                                <p>list: <?php echo $taskToday['list_id'] ?></p>
-
-                            </div>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-            </div>
-
-        <?php endif;
-        ?>
-
-
-
-
-
 
 
         <!-- ADD TASK IN LIST  -->
@@ -188,9 +101,9 @@ if (!empty($lists)) : ?>
                                         <?= $task['title']; ?>
                                     </label>
 
-                                    <!-- <div>
+                                    <div>
                                         <button type="submit">Submit</button>
-                                    </div> -->
+                                    </div>
                                 </form>
 
                                 <div class="edit-delete-buttons">
@@ -226,9 +139,9 @@ if (!empty($lists)) : ?>
                                     <label for="is_completed">
                                         <?= $task['title']; ?>
                                     </label>
-                                    <!-- <div>
+                                    <div>
                                         <button type="submit">Submit</button>
-                                    </div> -->
+                                    </div>
 
                                 </form>
 
@@ -259,39 +172,7 @@ if (!empty($lists)) : ?>
 
         ?>
 
-        <!-- TEST  -->
-        <!-- <div class="new-container">
-    <label for="new-task">Add Item</label>
-    <input id="new-task" type="text" />
-    <button id="button-first">Add</button>
 
-    <h3>Todo</h3>
-    <ul id="incomplete-tasks">
-        <li>
-            <input type="checkbox" />
-            <label>Pay Bills</label>
-            <input type="text" /><button class="edit">Edit</button>
-            <button class="delete">Delete</button>
-        </li>
-        <li class="editMode">
-            <input type="checkbox" />
-            <label>Go Shopping</label>
-            <input type="text" value="Go Shopping" />
-            <button class="edit">Edit</button>
-            <button class="delete">Delete</button>
-        </li>
-    </ul>
-
-    <h3>Completed</h3>
-    <ul id="completed-tasks">
-        <li>
-            <input type="checkbox" checked />
-            <label>See the Doctor</label><input type="text" />
-            <button class="edit">Edit</button>
-            <button class="delete">Delete</button>
-        </li>
-    </ul>
-</div> -->
 
     </div>
 
