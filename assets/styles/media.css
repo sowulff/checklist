@@ -1,0 +1,20 @@
+@media only screen and (min-width: 800px) {
+  .form-container {
+    flex-direction: row;
+    align-items: flex-end;
+    top: 20px;
+    position: absolute;
+    top: 20px;
+    padding: 39px;
+    background: none;
+  }
+  .sign-up-container {
+    background: none;
+  }
+  .log-in-container {
+    background: none;
+  }
+  .text-on-image {
+    width: 50%;
+  }
+}

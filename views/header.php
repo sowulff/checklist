@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="assets/styles/profile.css">
     <link rel="stylesheet" href="assets/styles/loggedin.css">
     <link rel="stylesheet" href="assets/styles/edit-task.css">
+    <link rel="stylesheet" href="assets/styles/media.css">
     <title>Checklist</title>
 </head>
 
