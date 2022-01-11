@@ -10,7 +10,7 @@ if (isset($_FILES['avatar'])) {
     // SE ÖVER
     $avatar = trim(filter_var($_FILES['avatar']['name'], FILTER_SANITIZE_STRING));
     $filename = $_SESSION['user']['id'] . $avatar;
-    $destination =  __DIR__ . date('ymd') . '/../../uploads/' . $avatar;
+    $destination =  __DIR__ . '/../../uploads/' . $filename;
     $avatarTemp = $_FILES['avatar']['tmp_name'];
     move_uploaded_file($avatarTemp, $destination);
 
@@ -25,6 +25,6 @@ if (isset($_FILES['avatar'])) {
 
     // FUNKAR FORFARANDE INTEEEEEE (!!!!)
 
-    $_SESSION['user']['img_url'] = $avatar;
+    $_SESSION['user']['img_url'] = $filename;
 };
-// redirect('/profile.php');
+redirect('/profile.php');
