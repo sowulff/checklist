@@ -1,0 +1,13 @@
+.new-task-container {
+  padding: 40px 10px;
+}
+.update-profile a {
+  text-decoration: none;
+  color: inherit;
+}
+.edit-task-buttons {
+  margin-top: 20px;
+}
+.go-back {
+  margin-bottom: 16px;
+}

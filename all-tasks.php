@@ -6,7 +6,6 @@ require __DIR__ . '/views/header.php';
 <?php
 $tasks = get_tasks($database);
 if (isset($_POST['all-tasks'])) : ?>
-    <a href="loggedin.php">go back</a>
     <div class="loggedin-container">
         <div class="task-container">
 

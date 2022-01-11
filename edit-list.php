@@ -7,14 +7,15 @@ declare(strict_types=1); ?>
 <?php $listId = $_GET['id']; ?>
 <?php $listTitle = $_GET['title']; ?>
 
-<form action="/app/lists/update.php?id=<?= $listId; ?>&title= <?= $listTitle ?>" method="post">
-
-    <label for="new-title">New title:</label>
-    <input type="text" name="new-title" id="new-title">
-
-    <button>Change</button>
-    <button><a href="/loggedin.php">Cancel</a></button>
-</form>
+<div class="new-task-container">
+    <form class="new-list-form" action="/app/lists/update.php?id=<?= $listId; ?>&title= <?= $listTitle ?>" method="post">
+        <label for="new-title">New title:</label>
+        <input type="text" name="new-title" id="new-title">
+        <div class="edit-task-buttons">
+            <button class="update-profile">Change</button>
+            <button class="update-profile"><a href="/loggedin.php">Cancel</a></button>
+        </div>
+    </form>
 </div>
 
 

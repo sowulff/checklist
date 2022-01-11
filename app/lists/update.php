@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
-
+$listTitle = $_GET['title'];
 $listId = $_GET['id'];
 $userId = $_SESSION['user']['id'];
 
@@ -13,7 +13,7 @@ if (isset($_POST['new-title'])) {
 
     if (empty($newTitle)) {
 
-        redirect('/');
+        redirect('/loggedin.php');
     }
 
     $statement = $database->prepare('UPDATE lists SET title = :title WHERE id = :id AND user_id = :user_id');
@@ -23,4 +23,4 @@ if (isset($_POST['new-title'])) {
     $statement->execute();
 }
 
-redirect('/loggedin.php');
+redirect('/loggedin.php?id=' . $listId . '&title=' . $listTitle);

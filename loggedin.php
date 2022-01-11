@@ -36,7 +36,7 @@ if (!empty($lists)) : ?>
                         <li>
                             <a class="list-link" href="loggedin.php?id=<?= $id; ?>&title=<?= $title; ?>"><?php echo $title ?></a>
                             <div class="edit-delete-buttons">
-                                <form action="/edit-list.php?id=<?= $id; ?>" method="post">
+                                <form action="/edit-list.php?id=<?= $id; ?> &title= <?= $title; ?>" method="post">
                                     <input name="edit-list" type="hidden" value="<?= $list['id'] ?>">
                                     <button class="loggedin-btn">edit</button>
                                 </form>
