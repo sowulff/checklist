@@ -5,7 +5,9 @@ declare(strict_types=1); ?>
 <?php require __DIR__ . '/views/header.php'; ?>
 
 <?php $listId = $_GET['id'];
-$taskId = $_GET['task_id']; ?>
+$taskId = $_GET['task_id'];
+// få in titel
+?>
 
 <form action="/app/tasks/update.php?id=<?= $listId ?>&task_id=<?= $taskId ?>" method="post">
 

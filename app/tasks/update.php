@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
+
 $listId = $_GET['id'];
 $taskId = $_GET['task_id'];
 $userId = $_SESSION['user']['id'];
+$title = $_GET['title'];
 
 if (isset($_POST['new-title'])) {
     $newTitle = trim(filter_var($_POST['new-title']));
@@ -50,4 +52,4 @@ if ($newDeadline) {
 }
 
 
-redirect('/loggedin.php');
+redirect('/loggedin.php?id=' . $listId . '&title=' . $title);

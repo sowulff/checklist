@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/app/autoload.php';
 require __DIR__ . '/views/header.php';
-print_r($_SESSION['error']);
+
 ?>
 
 <?php if (isset($_SESSION['user'])) : ?>
@@ -110,7 +110,7 @@ if (!empty($lists)) : ?>
                                 <div class="edit-delete-buttons">
 
 
-                                    <form action="/edit-tasks.php?id=<?= $id; ?>&task_id=<?= $task['id'] ?>" method="post">
+                                    <form action="/edit-tasks.php?id=<?= $id; ?>&task_id=<?= $task['id'] ?>&title=<?= $title ?>" method="post">
                                         <input name="edit-list" type="hidden" value="<?= $task['id'] ?>">
                                         <button class="loggedin-btn">edit</button>
                                     </form>
@@ -168,7 +168,8 @@ if (!empty($lists)) : ?>
                     <?php endforeach ?>
                 </ul>
             </div>
-            <form action="/delete.php" method="post">
+            <form action="/app/tasks/delete-completed-tasks.php" method="post">
+                <input type="hidden" value="<?= $task['id'] ?>" name="delete-completed" id="delete-completed" />
                 <button class="loggedin-btn-delete">Delete completed tasks</button>
             </form>
         <?php endif; ?>

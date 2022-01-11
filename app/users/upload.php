@@ -22,6 +22,7 @@ if (isset($_FILES['avatar'])) {
     $sql->execute();
 
     // FUNKAR FORFARANDE INTEEEEEE (!!!!)
-    $_SESSION['user']['img_url'] = $filename;
+
+    $_SESSION['user']['img_url'] = $avatar;
 };
-redirect('/profile.php');
+// redirect('/profile.php');
