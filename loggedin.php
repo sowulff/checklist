@@ -5,7 +5,7 @@ require __DIR__ . '/views/header.php';
 ?>
 
 <?php if (isset($_SESSION['user'])) : ?>
-    <p>Welcome, <?= $_SESSION['user']['name']; ?>!</p>
+    <p class="welcome-user">Welcome, <?= $_SESSION['user']['name']; ?>!</p>
 
     <!-- CREATE NEW LIST  -->
     <form class="new-list-form" action="/app/lists/create.php" method="post">
@@ -34,7 +34,7 @@ if (!empty($lists)) : ?>
 
                         ?>
                         <li>
-                            <a href="loggedin.php?id=<?= $id; ?>&title=<?= $title; ?>"><?php echo $title ?></a>
+                            <a class="list-link" href="loggedin.php?id=<?= $id; ?>&title=<?= $title; ?>"><?php echo $title ?></a>
                             <div class="edit-delete-buttons">
                                 <form action="/edit-list.php?id=<?= $id; ?>" method="post">
                                     <input name="edit-list" type="hidden" value="<?= $list['id'] ?>">
@@ -95,7 +95,7 @@ if (!empty($lists)) : ?>
                         if ($task['list_id'] === $_GET['id'] && $task['completed_at'] === null) : ?>
                             <li>
                                 <?php $isCompleted = isset($_POST['is_completed']); ?>
-                                <form action="/app/tasks/completed.php?id=<?= $id; ?>&title=<?= $title ?>" method="POST">
+                                <form class="list-flex" action="/app/tasks/completed.php?id=<?= $id; ?>&title=<?= $title ?>" method="POST">
                                     <input type="hidden" value="<?= $task['id'] ?>" name="id" />
                                     <input type="checkbox" name="is_completed" id="is_completed" />
                                     <label for="is_completed">
@@ -131,11 +131,11 @@ if (!empty($lists)) : ?>
                     <?php foreach ($tasks as $task) :
                         if ($task['completed_at'] !== null) : ?>
                             <li>
-                                <form action="/app/tasks/not-completed.php?id=<?= $id; ?>&title=<?= $title ?>" method="POST">
+                                <form class="list-flex" action="/app/tasks/not-completed.php?id=<?= $id; ?>&title=<?= $title ?>" method="POST">
 
                                     <input type="hidden" value="<?= $task['id'] ?>" name="id" />
                                     <input type="checkbox" name="is_completed" id="is_completed" checked />
-                                    <label for="is_completed">
+                                    <label class="line-thru" for="is_completed">
                                         <?= $task['title']; ?>
                                     </label>
 
@@ -144,7 +144,10 @@ if (!empty($lists)) : ?>
 
                                 <div class="edit-delete-buttons">
 
-                                    <a href="edit-tasks.php">edit</a>
+
+                                    <form action="/edit-tasks.php?id=<?= $id; ?>&task_id=<?= $task['id'] ?>&title=<?= $title ?>" method="post">
+                                        <input name="edit-list" type="hidden" value="<?= $task['id'] ?>">
+                                        <button class="loggedin-btn">edit</button>
                                     </form>
                                     <form action="/app/tasks/delete.php" method="post">
                                         <input type="hidden" value="<?= $task['id'] ?>" name="id" id="id" />

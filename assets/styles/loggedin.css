@@ -1,3 +1,12 @@
+.welcome-user {
+  margin-left: 10px;
+  font-family: sans-serif;
+}
+.list-link {
+  text-decoration: none;
+  /* color: #333; */
+  color: lightcoral;
+}
 .list-container li {
   display: flex;
   align-items: flex-end;
@@ -48,6 +57,14 @@
   margin-top: 16px;
   margin-left: 10px;
 }
+.list-flex {
+  display: flex;
+  gap: 5px;
+}
+.line-thru {
+  text-decoration: line-through 2px solid lightcoral;
+  color: rgb(185, 100, 100);
+}
 .edit-delete-buttons {
   display: flex;
 }
@@ -77,11 +94,13 @@
   border: 0;
   color: #888;
   font-size: 16px;
-
   font-family: sans-serif;
   cursor: pointer;
 }
 
+.loggedin-btn:hover {
+  color: lightcoral;
+}
 /* Heading */
 .loggedin-container h3 {
   color: #333;
@@ -94,7 +113,7 @@
 }
 .list-title {
   background-color: lightcoral;
-  margin-top: 50px;
+  margin-top: 25px;
   margin-bottom: 10px;
   width: 50%;
   padding: 7px;
@@ -172,4 +191,27 @@ li > .delete:hover {
   padding: 5px;
   width: 30%;
   margin-left: 0;
+}
+
+/* checkbox  */
+input[type='checkbox'] {
+  position: relative;
+  width: 1.5em;
+  height: 1.5em;
+  color: black;
+  border: 1px solid grey;
+  border-radius: 4px;
+  appearance: none;
+  outline: 0;
+  cursor: pointer;
+}
+
+input[type='checkbox']:checked {
+  color: white;
+  border-color: lightcoral;
+  background: lightcoral;
+}
+
+input[type='checkbox']:checked::before {
+  opacity: 1;
 }
