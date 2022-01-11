@@ -132,14 +132,11 @@ if (!empty($lists)) : ?>
                         if ($task['completed_at'] !== null) : ?>
                             <li>
                                 <form class="list-flex" action="/app/tasks/not-completed.php?id=<?= $id; ?>&title=<?= $title ?>" method="POST">
-
                                     <input type="hidden" value="<?= $task['id'] ?>" name="id" />
                                     <input type="checkbox" name="is_completed" id="is_completed" checked />
                                     <label class="line-thru" for="is_completed">
                                         <?= $task['title']; ?>
                                     </label>
-
-
                                 </form>
 
                                 <div class="edit-delete-buttons">
