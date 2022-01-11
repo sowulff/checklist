@@ -95,21 +95,15 @@ if (!empty($lists)) : ?>
                         if ($task['list_id'] === $_GET['id'] && $task['completed_at'] === null) : ?>
                             <li>
                                 <?php $isCompleted = isset($_POST['is_completed']); ?>
-                                <form action="/app/tasks/completed.php" method="POST">
+                                <form action="/app/tasks/completed.php?id=<?= $id; ?>&title=<?= $title ?>" method="POST">
                                     <input type="hidden" value="<?= $task['id'] ?>" name="id" />
                                     <input type="checkbox" name="is_completed" id="is_completed" />
                                     <label for="is_completed">
                                         <?= $task['title']; ?>
                                     </label>
-
-                                    <div>
-                                        <button type="submit">Submit</button>
-                                    </div>
                                 </form>
 
                                 <div class="edit-delete-buttons">
-
-
                                     <form action="/edit-tasks.php?id=<?= $id; ?>&task_id=<?= $task['id'] ?>&title=<?= $title ?>" method="post">
                                         <input name="edit-list" type="hidden" value="<?= $task['id'] ?>">
                                         <button class="loggedin-btn">edit</button>
@@ -137,16 +131,14 @@ if (!empty($lists)) : ?>
                     <?php foreach ($tasks as $task) :
                         if ($task['completed_at'] !== null) : ?>
                             <li>
-                                <form action="/app/tasks/not-completed.php" method="POST">
+                                <form action="/app/tasks/not-completed.php?id=<?= $id; ?>&title=<?= $title ?>" method="POST">
 
                                     <input type="hidden" value="<?= $task['id'] ?>" name="id" />
                                     <input type="checkbox" name="is_completed" id="is_completed" checked />
                                     <label for="is_completed">
                                         <?= $task['title']; ?>
                                     </label>
-                                    <div>
-                                        <button type="submit">Submit</button>
-                                    </div>
+
 
                                 </form>
 

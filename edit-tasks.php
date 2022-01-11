@@ -6,10 +6,9 @@ declare(strict_types=1); ?>
 
 <?php $listId = $_GET['id'];
 $taskId = $_GET['task_id'];
-// få in titel
-?>
+$title = $_GET['title']; ?>
 
-<form action="/app/tasks/update.php?id=<?= $listId ?>&task_id=<?= $taskId ?>" method="post">
+<form action="/app/tasks/update.php?id=<?= $listId ?>&task_id=<?= $taskId ?>&title=<?= $title ?>" method="post">
 
     <label for="new-title">New title:</label>
     <input type="text" name="new-title" id="new-title">

@@ -6,6 +6,8 @@ require __DIR__ . '../../autoload.php';
 
 if (isset($_FILES['avatar'])) {
     //save in filesystem
+
+    // SE ÖVER
     $avatar = trim(filter_var($_FILES['avatar']['name'], FILTER_SANITIZE_STRING));
     $filename = $_SESSION['user']['id'] . $avatar;
     $destination =  __DIR__ . date('ymd') . '/../../uploads/' . $avatar;

@@ -11,10 +11,10 @@ require __DIR__ . '/../autoload.php';
 
 if (isset($_POST['id'])) {
 
+    $listId = $_GET['id'];
+    $listTitle = $_GET['title'];
 
     $id = $_POST['id'];
-
-
     $myNull = null;
 
     $statement = $database->prepare(
@@ -26,4 +26,4 @@ if (isset($_POST['id'])) {
     $statement->execute();
     $user = $statement->fetch(PDO::FETCH_ASSOC);
 }
-redirect('/loggedin.php');
+redirect('/loggedin.php?id=' . $listId . '&title=' . $listTitle);
