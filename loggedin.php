@@ -109,7 +109,7 @@ if (!empty($lists)) : ?>
                                         <button class="loggedin-btn">edit</button>
                                     </form>
 
-                                    <form action="/app/tasks/delete.php" method="post">
+                                    <form action="/app/tasks/delete.php?id=<?= $id; ?>&task_id=<?= $task['id'] ?>&title=<?= $title ?>" method="post">
                                         <input type="hidden" value="<?= $task['id'] ?>" name="id" id="id" />
                                         <button class="loggedin-btn">delete</button>
                                     </form>
@@ -143,13 +143,11 @@ if (!empty($lists)) : ?>
                                 </form>
 
                                 <div class="edit-delete-buttons">
-
-
                                     <form action="/edit-tasks.php?id=<?= $id; ?>&task_id=<?= $task['id'] ?>&title=<?= $title ?>" method="post">
                                         <input name="edit-list" type="hidden" value="<?= $task['id'] ?>">
                                         <button class="loggedin-btn">edit</button>
                                     </form>
-                                    <form action="/app/tasks/delete.php" method="post">
+                                    <form action="/app/tasks/delete.php?id=<?= $id; ?>&task_id=<?= $task['id'] ?>&title=<?= $title ?>" method="post">
                                         <input type="hidden" value="<?= $task['id'] ?>" name="id" id="id" />
                                         <button class="loggedin-btn" type="submit">delete</button>
                                     </form>
