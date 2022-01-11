@@ -24,9 +24,17 @@ require __DIR__ . '/views/header.php';
     <div class="form-container">
         <div class="log-in-container">
             <h2>LOGIN</h2>
+            <?php if (isset($_SESSION['errors'])) : ?>
+                <?php foreach ($_SESSION['errors'] as $error) : ?>
+                    <div class="error-login">
+                        <?= $error; ?>
+                    </div>
+                <?php endforeach; ?>
+                <?php unset($_SESSION['errors']) ?>
+            <?php endif; ?>
 
 
-            <div class="error-login"><?php echo 'wrong lala'; ?></div>
+
 
 
 
@@ -44,7 +52,8 @@ require __DIR__ . '/views/header.php';
 
         <div class="sign-up-container">
             <h2>CREATE ACCOUNT</h2>
-            <div class="error-login">Incorrect something.</div>
+
+
             <form action="app/users/register.php" method="post" enctype="multipart/form-data">
 
                 <div>

@@ -4,21 +4,50 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
-if (isset($_POST['title'], $_POST['description'], $_POST['deadline'])) {
+$listId = $_GET['id'];
+$taskId = $_GET['task_id'];
+$userId = $_SESSION['user']['id'];
 
-    $newTitle = trim(filter_var($_POST['title'], FILTER_SANITIZE_STRING));
-    $newContent = trim(filter_var($_POST['description'], FILTER_SANITIZE_STRING));
-    $newDeadline = trim(filter_var($_POST['deadline'], FILTER_SANITIZE_STRING));
-    $id = $_POST['id'];
+if (isset($_POST['new-title'])) {
+    $newTitle = trim(filter_var($_POST['new-title']));
+}
 
-    $query = ("UPDATE tasks SET title = :newTitle, content = :newContent, deadline_at = :newDeadline WHERE id = :id");
-    $statement = $database->prepare($query);
-    $statement->bindParam(':newTitle', $newTitle, PDO::PARAM_STR);
-    $statement->bindParam(':newDescription', $newContent, PDO::PARAM_STR);
-    $statement->bindParam(':newDeadline', $newDeadline, PDO::PARAM_STR);
-    $statement->bindParam(':id', $id, PDO::PARAM_INT);
-
+if ($newTitle) {
+    $statement = $database->prepare('UPDATE tasks SET title = :title WHERE id = :id AND list_id = :list_id AND user_id = :user_id');
+    $statement->bindParam(':title', $newTitle, PDO::PARAM_STR);
+    $statement->bindParam(':id', $taskId, PDO::PARAM_INT);
+    $statement->bindParam(':list_id', $listId, PDO::PARAM_INT);
+    $statement->bindParam(':user_id', $userId, PDO::PARAM_INT);
     $statement->execute();
 }
+
+
+if (isset($_POST['new-description'])) {
+    $newDescription = trim(filter_var($_POST['new-description']));
+}
+
+if ($newDescription) {
+    $statement = $database->prepare('UPDATE tasks SET description = :description WHERE id = :id AND list_id = :list_id AND user_id = :user_id');
+    $statement->bindParam(':description', $newDescription, PDO::PARAM_STR);
+    $statement->bindParam(':id', $taskId, PDO::PARAM_INT);
+    $statement->bindParam(':list_id', $listId, PDO::PARAM_INT);
+    $statement->bindParam(':user_id', $userId, PDO::PARAM_INT);
+    $statement->execute();
+}
+
+
+if (isset($_POST['new-deadline'])) {
+    $newDeadline = $_POST['new-deadline'];
+}
+
+if ($newDeadline) {
+    $statement = $database->prepare('UPDATE tasks SET completed_by = :completed_by WHERE id = :id AND list_id = :list_id AND user_id = :user_id');
+    $statement->bindParam(':completed_by', $newDeadline, PDO::PARAM_STR);
+    $statement->bindParam(':id', $taskId, PDO::PARAM_INT);
+    $statement->bindParam(':list_id', $listId, PDO::PARAM_INT);
+    $statement->bindParam(':user_id', $userId, PDO::PARAM_INT);
+    $statement->execute();
+}
+
 
 redirect('/loggedin.php');

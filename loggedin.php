@@ -36,7 +36,7 @@ if (!empty($lists)) : ?>
                         <li>
                             <a href="loggedin.php?id=<?= $id; ?>&title=<?= $title; ?>"><?php echo $title ?></a>
                             <div class="edit-delete-buttons">
-                                <form action="/edit-list.php" method="post">
+                                <form action="/edit-list.php?id=<?= $id; ?>" method="post">
                                     <input name="edit-list" type="hidden" value="<?= $list['id'] ?>">
                                     <button class="loggedin-btn">edit</button>
                                 </form>
@@ -110,7 +110,10 @@ if (!empty($lists)) : ?>
                                 <div class="edit-delete-buttons">
 
 
-                                    <a href="edit-tasks.php">edit</a>
+                                    <form action="/edit-tasks.php?id=<?= $id; ?>&task_id=<?= $task['id'] ?>" method="post">
+                                        <input name="edit-list" type="hidden" value="<?= $task['id'] ?>">
+                                        <button class="loggedin-btn">edit</button>
+                                    </form>
 
                                     <form action="/app/tasks/delete.php" method="post">
                                         <input type="hidden" value="<?= $task['id'] ?>" name="id" id="id" />

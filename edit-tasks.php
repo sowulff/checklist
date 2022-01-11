@@ -4,19 +4,22 @@ declare(strict_types=1); ?>
 <?php require __DIR__ . '/app/autoload.php'; ?>
 <?php require __DIR__ . '/views/header.php'; ?>
 
+<?php $listId = $_GET['id'];
+$taskId = $_GET['task_id']; ?>
 
+<form action="/app/tasks/update.php?id=<?= $listId ?>&task_id=<?= $taskId ?>" method="post">
 
-<form action="app/tasks/update.php" method="post" enctype="multipart/form-data">
-    <input type="hidden" value="<?= $id ?>" name="id" id="id">
+    <label for="new-title">New title:</label>
+    <input type="text" name="new-title" id="new-title">
 
-    <label for="title">Title </label>
-    <input class="form-control" type="name" name="title" id="title" value="<?php echo $task['title'] ?>">
-    <label for="tasks">Description</label>
-    <input class="form-control" type="description" name="description" id="description" value="<?php echo $task['content'] ?>">
-    <label for="deadline">Deadline</label>
-    <input class="form-control" type="date" name="deadline" id="deadline" value="<?php echo $task['deadline_at'] ?>">
+    <label for="new-description">New description:</label>
+    <input type="text" name="new-description" id="new-description"></textarea>
 
-    <button>add changes</button>
+    <label for="new-deadline">New deadline:</label>
+    <input type="date" name="new-deadline" id="new-deadline">
+
+    <button>Change</button>
+    <button><a href="/individual-list.php?id=<?= $listId ?>">Cancel</a></button>
 </form>
 
 <!-- DELETE TASK BUTTON/FORM -->

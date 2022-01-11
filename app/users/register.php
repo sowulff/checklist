@@ -12,8 +12,8 @@ if (isset($_POST['name'], $_POST['email'], $_POST['password'], $_POST['password-
     // $hash_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
     if ($password !== $confirmPassword) {
-        $_SESSION['error'] = 'The passwords dosen\'t match, please try again.';
-        redirect('/signup.php');
+
+        redirect('/index.php');
     } else {
         $password = password_hash($password, PASSWORD_DEFAULT);
     }
