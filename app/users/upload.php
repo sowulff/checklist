@@ -20,5 +20,8 @@ if (isset($_FILES['avatar'])) {
     $sql->bindParam(':avatar', $avatar, PDO::PARAM_STR);
     $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
     $sql->execute();
-    redirect('/profile.php');
+
+    // FUNKAR FORFARANDE INTEEEEEE (!!!!)
+    $_SESSION['user']['img_url'] = $filename;
 };
+redirect('/profile.php');
