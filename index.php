@@ -16,8 +16,8 @@ require __DIR__ . '/views/header.php';
                 <span class="small-to">with</span> <span class="color-logo">myList.</span>
             </h1>
             <p>
-                Welocome to myList, ipsum dolor sit amet, consectetur adipiscing
-                elit. Curabitur et est sed felis aliquet sollicitudin.
+                Welcome to myList, where dreams become true.
+                Create different lists where you can add unlimited number of tasks.
             </p>
         </div>
     </div>
