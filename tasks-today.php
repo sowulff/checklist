@@ -14,7 +14,7 @@ if (isset($_POST['tasks-for-today'])) : ?>
                 <?php foreach ($tasksToday as $taskToday) : ?>
                     <li>
                         <?= $taskToday['title']; ?>
-                        <?php die(var_dump($taskToday)); ?>
+
                     </li>
                     <div class="info-about-task">
                         <p>description: <?php echo $taskToday['content'] ?></p>

@@ -22,10 +22,14 @@ if (password) {
 // TASKS
 
 const form = document.querySelector('form');
-const task = document.querySelector('input[type=checkbox]');
+const tasks = document.querySelectorAll('input[type=checkbox]');
 
 // When the user clicks on the checkbox the form will automagically submit.
 
-task.addEventListener('click', (event) => {
+function handleClick(event) {
   event.target.parentNode.submit();
+}
+
+tasks.forEach((task) => {
+  task.addEventListener('click', handleClick);
 });
