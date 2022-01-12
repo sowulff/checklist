@@ -29,8 +29,6 @@ if (isset($_POST['email'], $_POST['password'])) {
         $_SESSION['errors'][] = "The email or password is not correct!";
         redirect('/index.php');
     }
-
-
     if (password_verify($_POST['password'], $user['password'])) {
         unset($user['password']);
         $_SESSION['user'] = $user;

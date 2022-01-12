@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
-if (isset($_POST['name'], $_POST['email'], $_POST['password'], $_POST['password-confirm'])) {
-    $name = trim($_POST['name']);
-    $email = trim($_POST['email']);
-    $password = $_POST['password'];
+if (isset($_POST['new-name'], $_POST['new-email'], $_POST['new-password'], $_POST['password-confirm'])) {
+    $name = trim($_POST['new-name']);
+    $email = trim($_POST['new-email']);
+    $password = $_POST['new-password'];
     $confirmPassword = $_POST['password-confirm'];
     // $hash_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 

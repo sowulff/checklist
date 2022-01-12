@@ -48,15 +48,15 @@ require __DIR__ . '/views/header.php';
             <form action="app/users/register.php" method="post" enctype="multipart/form-data">
                 <div>
                     <label for="name">Name</label>
-                    <input type="name" name="name" id="name" required>
+                    <input type="name" name="new-name" id="new-name" required>
                 </div>
                 <div>
                     <label for="email">Email</label>
-                    <input type="email" name="email" id="email" required>
+                    <input type="email" name="new-email" id="new-email" required>
                 </div>
                 <div>
                     <label for="password">Password</label>
-                    <input type="password" name="password" id="password" required>
+                    <input type="password" name="new-password" id="new-password" required>
                 </div>
                 <div>
                     <label for="password-confirm">Confirm password</label>
