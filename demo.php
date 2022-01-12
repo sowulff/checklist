@@ -143,10 +143,6 @@ require __DIR__ . '/views/header.php';
         <form>
             <button class="loggedin-btn-delete">Delete completed tasks</button>
         </form>
-
-
-
-
 </div>
 
 <?php require __DIR__ . '/views/footer.php'; ?>

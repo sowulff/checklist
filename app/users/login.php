@@ -32,10 +32,11 @@ if (isset($_POST['email'], $_POST['password'])) {
 
 
     if (password_verify($_POST['password'], $user['password'])) {
-
         unset($user['password']);
-
         $_SESSION['user'] = $user;
+    } else {
+        $_SESSION['errors'][] = "Wrong password. Try again!";
+        redirect('/index.php');
     }
 }
 

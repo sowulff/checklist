@@ -2,6 +2,7 @@
   .form-container {
     flex-direction: row;
     align-items: flex-end;
+    justify-content: space-around;
     top: 20px;
     position: absolute;
     top: 20px;

@@ -44,10 +44,12 @@
 .log-in-container {
   background-color: white;
   width: 100%;
+  max-width: 400px;
 }
 .sign-up-container {
   background-color: white;
   width: 100%;
+  max-width: 400px;
 }
 .form-container h2 {
   text-align: center;
