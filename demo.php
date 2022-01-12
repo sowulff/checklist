@@ -4,6 +4,7 @@ require __DIR__ . '/views/header.php';
 ?>
 
 <div class="loggedin-container demo">
+    <p class="p-demo">This is how it looks when you're logged in!</p>
     <form>
         <label for="title">Add list</label>
         <div>
