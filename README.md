@@ -1,4 +1,4 @@
-(https://media.giphy.com/media/l2JedYzPE8MYVgM6Y/giphy.gif)
+![](https://media.giphy.com/media/l2JedYzPE8MYVgM6Y/giphy.gif)
 # todo
 
 This is an individual school assignment focusing on php-programming. i've created a To-Do application with following features:
