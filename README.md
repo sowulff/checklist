@@ -1,4 +1,3 @@
-<iframe src="https://giphy.com/embed/l2JedYzPE8MYVgM6Y" width="480" height="362" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/season-17-the-simpsons-17x21-l2JedYzPE8MYVgM6Y">via GIPHY</a></p>
 
 # todo
 
