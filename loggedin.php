@@ -15,7 +15,6 @@ require __DIR__ . '/views/header.php';
             <button class="loggedin-btn-plus">+</button>
         </div>
     </form>
-
 <?php
 endif; ?>
 <?php
@@ -50,11 +49,7 @@ if (!empty($lists)) : ?>
                 </ul>
             </div>
         <?php endif; ?>
-
-
-
         <!-- BUTTONS -->
-
         <div class="show-stuff">
             <form action="/all-tasks.php" method="post">
                 <button name="all-tasks" type="submit" class="loggedin-btn">All tasks</button>

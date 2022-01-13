@@ -3,9 +3,7 @@
 
 
 <?php if (isset($_SESSION['user']['img_url'])) :
-    $userImage = $_SESSION['user']['img_url'];
-?>
-
+    $userImage = $_SESSION['user']['img_url']; ?>
     <div class="container-profile-image">
         <img src="uploads/<?php echo $userImage ?>" class="image">
     </div>

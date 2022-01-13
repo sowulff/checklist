@@ -26,7 +26,6 @@ if (isset($_POST['all-tasks'])) : ?>
             </ul>
         </div>
     <?php endif; ?>
-
     <div class="task-container">
         <h3>Completed</h3>
         <ul>
