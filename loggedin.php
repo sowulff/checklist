@@ -44,7 +44,7 @@ require __DIR__ . '/views/header.php'; ?>
                         <?php endforeach; ?>
                     </ul>
                 </div>
-            <?php endif; ?>
+
             <div class="show-stuff">
                 <form action="/all-tasks.php" method="post">
                     <button name="all-tasks" type="submit" class="loggedin-btn">All tasks</button>
@@ -151,5 +151,5 @@ require __DIR__ . '/views/header.php'; ?>
             </form>
         </div>
 
-    <?php endif; ?>
+
     <?php require __DIR__ . '/views/footer.php'; ?>
