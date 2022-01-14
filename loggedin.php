@@ -80,7 +80,7 @@ require __DIR__ . '/views/header.php'; ?>
                             <?php
                             $tasks = get_tasks($database);
                             foreach ($tasks as $task) :
-                                if ($task['list_id'] === $_GET['id'] && $task['completed_at'] === null) : ?>
+                                if ($task['list_id'] == $_GET['id'] && $task['completed_at'] === null) : ?>
                                     <li>
                                         <?php $isCompleted = isset($_POST['is_completed']); ?>
                                         <form class="list-flex" action="/app/tasks/completed.php?id=<?= $id; ?>&title=<?= $title ?>" method="POST">
