@@ -76,6 +76,13 @@ require __DIR__ . '/views/header.php'; ?>
 
                     <div class="task-container">
                         <h3>Todo</h3>
+                        <form class="list-flex" action="/app/lists/complete-tasks.php?id=<?= $_GET['id']; ?>&title=<?= $_GET['title']; ?>" method="POST">
+                            <input type="hidden" value="<?= $_GET['id']; ?>" name="id">
+                            <input type="checkbox" name="is_completed" id="is_completed" />
+                            <label for="is_completed">
+                                Mark everything in <?= $_GET['title']; ?> as completed
+                            </label>
+                        </form>
                         <ul>
                             <?php
                             $tasks = get_tasks($database);
@@ -114,6 +121,13 @@ require __DIR__ . '/views/header.php'; ?>
 
                     <div class="task-container">
                         <h3>Completed</h3>
+                        <form class="list-flex" action="/app/lists/not-completed-tasks.php?id=<?= $_GET['id']; ?>&title=<?= $_GET['title']; ?>" method="POST">
+                            <input type="hidden" value="<?= $_GET['id']; ?>" name="id">
+                            <input type="checkbox" name="is_completed" id="is_completed" />
+                            <label for="is_completed">
+                                Mark all tasks as uncompleted
+                            </label>
+                        </form>
                         <ul>
                             <?php foreach ($tasks as $task) :
                                 if ($task['completed_at'] !== null) : ?>
