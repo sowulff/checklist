@@ -19,6 +19,14 @@ $title = $_GET['title']; ?>
         <div>
             <input type="date" name="new-deadline" id="new-deadline">
         </div>
+        <label for="task-list">Change list:</label>
+        <select name="task-list" id="task-list">
+            <?php foreach (get_lists($database) as $list) : ?>
+                <option value="<?= $list['id']; ?>">
+                    <?= htmlspecialchars($list['title']); ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
         <div class="edit-task-buttons">
             <button class="update-profile">Change</button>
             <button class="update-profile"><a href="loggedin.php">Cancel</a></button>
