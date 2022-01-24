@@ -59,3 +59,14 @@ Tested by the following people:
 
 1. Amanda Karlsson
 2. Nelly Svarvare Petrén
+
+# Wunderlist+
+
+[Sofia Rönnkvist](https://github.com/sofiaronnkvist) added:
+
+1. Ability to mark all tasks in a list as completed.
+2. Ability to mark all completed tasks as uncompleted.
+3. Ability to change list of a task in edit-mode.
+
+See the Pull requests [here!](https://github.com/sowulff/checklist/pull/2/commits) 
+
